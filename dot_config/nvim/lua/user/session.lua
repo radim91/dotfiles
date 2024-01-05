@@ -34,3 +34,12 @@ local Workspace = require("projections.workspace")
 vim.api.nvim_create_user_command("AddWorkspace", function() 
     Workspace.add(vim.loop.cwd()) 
 end, {})
+
+local Session = require("projections.session")
+vim.api.nvim_create_user_command("StoreProjectSession", function()
+    Session.store(vim.loop.cwd())
+end, {})
+
+vim.api.nvim_create_user_command("RestoreProjectSession", function()
+    Session.restore(vim.loop.cwd())
+end, {})
