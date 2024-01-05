@@ -44,5 +44,5 @@ vim.api.nvim_create_user_command("RestoreProjectSession", function()
     Session.restore(vim.loop.cwd())
 end, {})
 
-vim.keymap.set("n", "<leader>ss", ":StoreProjectSession")
-vim.keymap.set("n", "<leader>rs", ":RestoreProjectSession")
+vim.keymap.set("n", "<leader>ss", ":StoreProjectSession<cr>")
+vim.keymap.set("n", "<leader>rs", ":RestoreProjectSession<cr>")
