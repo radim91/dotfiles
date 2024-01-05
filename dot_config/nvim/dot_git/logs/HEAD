@@ -1,0 +1,40 @@
+0000000000000000000000000000000000000000 9dcd987d0276d20c6e5c4d798e8477475110abe7 Radim Hejduk <dev@radimhejduk.cz> 1698838476 +0100	clone: from github.com:radim91/neovim.git
+9dcd987d0276d20c6e5c4d798e8477475110abe7 751fbf8fce35cedb074e328982b446ddfce62daa Radim Hejduk <dev@radimhejduk.cz> 1698853205 +0100	commit: lsp and telescope
+751fbf8fce35cedb074e328982b446ddfce62daa 706d5362f5bd3a7fa4ff523b80c28e2788fd3131 Radim Hejduk <dev@radimhejduk.cz> 1698868016 +0100	commit: autopairs
+706d5362f5bd3a7fa4ff523b80c28e2788fd3131 706d5362f5bd3a7fa4ff523b80c28e2788fd3131 Radim Hejduk <dev@radimhejduk.cz> 1698873613 +0100	reset: moving to HEAD
+706d5362f5bd3a7fa4ff523b80c28e2788fd3131 b039acdbdd0cb7f6fd680078da160a39403eaca5 Radim Hejduk <dev@radimhejduk.cz> 1698873640 +0100	commit: nvim-tree
+b039acdbdd0cb7f6fd680078da160a39403eaca5 7952c138c55cba3a680df4299aa35bea3eeaf677 Radim Hejduk <dev@radimhejduk.cz> 1698875505 +0100	commit: nvim-tree
+7952c138c55cba3a680df4299aa35bea3eeaf677 e2dc640002c58e882163bbe4cb82ff03a233f195 Radim Hejduk <dev@radimhejduk.cz> 1698998059 +0100	pull --no-edit: Fast-forward
+e2dc640002c58e882163bbe4cb82ff03a233f195 ff5f3999ed803d00c105b65b8111a2d283355205 Radim Hejduk <dev@radimhejduk.cz> 1698998791 +0100	commit: bufferline
+ff5f3999ed803d00c105b65b8111a2d283355205 0617f74b347880f7741629661301a902e31a72db Radim Hejduk <dev@radimhejduk.cz> 1699010697 +0100	commit: toggle term, bufferline
+0617f74b347880f7741629661301a902e31a72db 0d3117d6bccf3abff6db28a6a9b2b6859d7b7d31 Radim Hejduk <dev@radimhejduk.cz> 1699015582 +0100	commit: coc
+0d3117d6bccf3abff6db28a6a9b2b6859d7b7d31 5e65ae0147ef18b56fe0ce3652bd0138b59229e5 Radim Hejduk <dev@radimhejduk.cz> 1699016114 +0100	commit: coc -cmp
+5e65ae0147ef18b56fe0ce3652bd0138b59229e5 81c263f4ada7184811342c4993f4d6fdfbab5a28 Radim Hejduk <dev@radimhejduk.cz> 1699016353 +0100	commit: keymap for closing buffer
+81c263f4ada7184811342c4993f4d6fdfbab5a28 1ab03fe90834184648c7b86eab09ff9ce8960d7a Radim Hejduk <dev@radimhejduk.cz> 1699017066 +0100	commit: cmp fix
+1ab03fe90834184648c7b86eab09ff9ce8960d7a eaae9e6fa0526deb9d83e1cda22c696443b3ba69 Radim Hejduk <dev@radimhejduk.cz> 1699039480 +0100	commit: auto session
+eaae9e6fa0526deb9d83e1cda22c696443b3ba69 109df1945309b68256799855ba64d49519784183 Radim Hejduk <dev@radimhejduk.cz> 1699039838 +0100	commit: scrollbar
+109df1945309b68256799855ba64d49519784183 4f522567c694499783e1da115019a6744e6bca75 Radim Hejduk <dev@radimhejduk.cz> 1699188649 +0100	commit: fixed keymaps
+4f522567c694499783e1da115019a6744e6bca75 e14dec87b80e092ebe8d42680dee13cdd4c1a7cb Radim Hejduk <dev@radimhejduk.cz> 1699188751 +0100	commit: fixed keympas
+e14dec87b80e092ebe8d42680dee13cdd4c1a7cb cb6b96a7fcb4829302b9f854a54bcd22d858475d Radim Hejduk <dev@radimhejduk.cz> 1699189290 +0100	commit: keymaps fix
+cb6b96a7fcb4829302b9f854a54bcd22d858475d 1c46a0906946f87810da2a9c6a654d505011809a Radim Hejduk <dev@radimhejduk.cz> 1699223267 +0100	commit: buffer delete command
+1c46a0906946f87810da2a9c6a654d505011809a 625604b2971b4bf2a20ef3e99ef81a8191825d6b Radim Hejduk <dev@radimhejduk.cz> 1699395605 +0100	pull --no-edit: Fast-forward
+625604b2971b4bf2a20ef3e99ef81a8191825d6b e26a5d336b2b0d0e0d7593d71e74f27f3bb6d650 Radim Hejduk <dev@radimhejduk.cz> 1699395614 +0100	commit: pdf preview
+e26a5d336b2b0d0e0d7593d71e74f27f3bb6d650 6489726a1b0f8a9e5eeceebbbee675893100a8f3 Radim Hejduk <dev@radimhejduk.cz> 1699447478 +0100	pull --no-edit: Fast-forward
+6489726a1b0f8a9e5eeceebbbee675893100a8f3 5aa866422e39e1723aaec8ea25961905a01e6839 Radim Hejduk <dev@radimhejduk.cz> 1699563559 +0100	pull --no-edit: Fast-forward
+5aa866422e39e1723aaec8ea25961905a01e6839 058fb666f6f2b42a6b5a609b4e5f27932dcc6c40 Radim Hejduk <dev@radimhejduk.cz> 1699565765 +0100	commit: statusline
+058fb666f6f2b42a6b5a609b4e5f27932dcc6c40 a99c594952f7fc2152982db114e6d581112cdd16 Radim Hejduk <dev@radimhejduk.cz> 1699567441 +0100	commit: statusline
+a99c594952f7fc2152982db114e6d581112cdd16 c514bd6993d77ff6f681c39038ab0ebfa959f3d5 Radim Hejduk <dev@radimhejduk.cz> 1699912272 +0100	pull --no-edit: Fast-forward
+c514bd6993d77ff6f681c39038ab0ebfa959f3d5 a3531f607a0cfe640d7b2a0a93bacc6536f63387 Radim Hejduk <dev@radimhejduk.cz> 1700059781 +0100	pull --no-edit: Fast-forward
+a3531f607a0cfe640d7b2a0a93bacc6536f63387 f96094e9e05426e1b53889102558722eb097f9a0 Radim Hejduk <dev@radimhejduk.cz> 1700065708 +0100	commit: word wrap
+f96094e9e05426e1b53889102558722eb097f9a0 1f889c7e98bf2505055f0ee01d2c4c0418df070f Radim Hejduk <dev@radimhejduk.cz> 1700075464 +0100	commit: hide highlighting keymap
+1f889c7e98bf2505055f0ee01d2c4c0418df070f 5951b43c198c8387a7d03c05e5404a28a28b1803 Radim Hejduk <dev@radimhejduk.cz> 1700077602 +0100	commit: projections
+5951b43c198c8387a7d03c05e5404a28a28b1803 7718fd771ff8aa6516436ae49c43fcfdbcb05012 Radim Hejduk <dev@radimhejduk.cz> 1700078830 +0100	commit: multi cursor
+7718fd771ff8aa6516436ae49c43fcfdbcb05012 c66a40e805633b58fa3d3cf52f42270fdc0e1026 Radim Hejduk <dev@radimhejduk.cz> 1700169259 +0100	pull --no-edit: Fast-forward
+c66a40e805633b58fa3d3cf52f42270fdc0e1026 6d9fd8fdbd60e76b1173abd07e0ab5fdadebb404 Radim Hejduk <dev@radimhejduk.cz> 1700653020 +0100	commit: remove multi cursor plugin
+6d9fd8fdbd60e76b1173abd07e0ab5fdadebb404 e66d8ed307fe7a2eee516a54bd7d3dcd602cc871 Radim Hejduk <dev@radimhejduk.cz> 1700667808 +0100	commit: ts comment string
+e66d8ed307fe7a2eee516a54bd7d3dcd602cc871 32c40bba41a2df5ef0a038d3f3ecb6db72b576c4 Radim Hejduk <dev@radimhejduk.cz> 1701865901 +0100	pull --no-edit: Fast-forward
+32c40bba41a2df5ef0a038d3f3ecb6db72b576c4 905a28418193e27431f0c61a3902ab36d69fe73a Radim Hejduk <dev@radimhejduk.cz> 1704292698 +0100	commit: tabline shows only filepath
+905a28418193e27431f0c61a3902ab36d69fe73a 6a53756f5008b9cf310c07dc5544b1d0b87bcaaa Radim Hejduk <dev@radimhejduk.cz> 1704293522 +0100	commit: remove tabline, custom sttusline component
+6a53756f5008b9cf310c07dc5544b1d0b87bcaaa 0c79ad5014d7bce2abfdfb4b0381a2767eeb9ff0 Radim Hejduk <dev@radimhejduk.cz> 1704393604 +0100	pull --no-edit: Fast-forward
+0c79ad5014d7bce2abfdfb4b0381a2767eeb9ff0 43690b975056fcc50b89b141da56ce03bdba9b99 Radim Hejduk <dev@radimhejduk.cz> 1704458623 +0100	commit: lspconfig
+43690b975056fcc50b89b141da56ce03bdba9b99 b0b1cd8f7ef9904f70d96e5dd5e1c15b998f20d1 Radim Hejduk <dev@radimhejduk.cz> 1704480835 +0100	pull --no-edit: Fast-forward
