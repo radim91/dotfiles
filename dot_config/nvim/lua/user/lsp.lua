@@ -31,9 +31,15 @@ lspconfig.emmet_language_server.setup{
     on_attach = on_attach,
     capabilities = capabilities,
     filetypes = { "css", "twig", "html", "latte", "javascriptreact", "less", "pug", "sass", "scss", "typescriptreact" },
-    showAbbreviationSuggestions = true,
-    showExpandedAbbreviation = "always",
-    showSuggestionsAsSnippets = true
+    init_options = {
+        showAbbreviationSuggestions = true,
+        showExpandedAbbreviation = "always",
+        showSuggestionsAsSnippets = true,
+        includeLanguages = {
+             twig = "html",
+             latte = "html"
+        }
+    }
 }
 
 
