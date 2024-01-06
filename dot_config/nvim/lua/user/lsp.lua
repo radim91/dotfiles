@@ -30,7 +30,6 @@ lspconfig.rust_analyzer.setup{
 lspconfig.html.setup{
     on_attach = on_attach,
     capabilities = capabilities
-    filetypes = { "html", "twig", "latte" }
 }
 
 lspconfig.cssls.setup{
