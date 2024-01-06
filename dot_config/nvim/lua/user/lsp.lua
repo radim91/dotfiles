@@ -27,15 +27,10 @@ lspconfig.rust_analyzer.setup{
     capabilities = capabilities
 }
 
-lspconfig.html.setup{
+lspconfig.emmet_language_server.setup{
     on_attach = on_attach,
     capabilities = capabilities,
-    filetypes = { "html", "twig", "latte" }
-}
-
-lspconfig.cssls.setup{
-    on_attach = on_attach,
-    capabilities = capabilities
+    filetypes = { "css", "twig", "html", "latte", "javascriptreact", "less", "pug", "sass", "scss", "typescriptreact" }
 }
 
 
