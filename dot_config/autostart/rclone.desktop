@@ -1,0 +1,5 @@
+[Desktop Entry]
+Type=Application
+Name=rclone
+Exec="rclone" "mount" "pcloud:" "/home/radim/pCloudDrive"
+X-GNOME-Autostart-enabled=true

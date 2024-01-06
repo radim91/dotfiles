@@ -1,0 +1,5 @@
+[Desktop Entry]
+Type=Application
+Name=Proton Mail Bridge
+Exec="ch.protonmail.protonmail-bridge" "--noninteractive"
+X-GNOME-Autostart-enabled=true
