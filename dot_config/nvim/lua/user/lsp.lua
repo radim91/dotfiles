@@ -27,6 +27,18 @@ lspconfig.rust_analyzer.setup{
     capabilities = capabilities
 }
 
+lspconfig.html.setup{
+    on_attach = on_attach,
+    capabilities = capabilities
+    filetypes = { "html", "twig", "latte" }
+}
+
+lspconfig.cssls.setup{
+    on_attach = on_attach,
+    capabilities = capabilities
+}
+
+
 -- luasnip setup
 local luasnip = require 'luasnip'
 
