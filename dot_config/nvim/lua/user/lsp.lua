@@ -35,10 +35,6 @@ lspconfig.emmet_language_server.setup{
         showAbbreviationSuggestions = true,
         showExpandedAbbreviation = "always",
         showSuggestionsAsSnippets = true,
-        includeLanguages = {
-             twig = "html",
-             latte = "html"
-        }
     }
 }
 
