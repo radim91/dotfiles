@@ -30,7 +30,7 @@ lspconfig.rust_analyzer.setup{
 lspconfig.emmet_language_server.setup{
     on_attach = on_attach,
     capabilities = capabilities,
-    filetypes = { "css", "html-twig", "html", "latte", "javascriptreact", "less", "pug", "sass", "scss", "typescriptreact" },
+    filetypes = { "css", "html.twig", "html", "latte", "javascriptreact", "less", "pug", "sass", "scss", "typescriptreact" },
     init_options = {
         showAbbreviationSuggestions = true,
         showExpandedAbbreviation = "always",
