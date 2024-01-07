@@ -7,11 +7,6 @@ harpoon:setup()
 vim.keymap.set("n", "<leader>a", function() harpoon:list():append() end)
 vim.keymap.set("n", "<C-w>", function() harpoon.ui:toggle_quick_menu(harpoon:list()) end)
 
-vim.keymap.set("n", "<C-ě>", function() harpoon:list():select(1) end)
-vim.keymap.set("n", "<C-š>", function() harpoon:list():select(2) end)
-vim.keymap.set("n", "<C-č>", function() harpoon:list():select(3) end)
-vim.keymap.set("n", "<C-ř>", function() harpoon:list():select(4) end)
-
 -- Toggle previous & next buffers stored within Harpoon list
 vim.keymap.set("n", "<C-ú>", function() harpoon:list():prev() end)
 vim.keymap.set("n", "<C-/>", function() harpoon:list():next() end)
