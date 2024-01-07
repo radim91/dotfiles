@@ -13,7 +13,7 @@ vim.keymap.set("n", "<C-č>", function() harpoon:list():select(3) end)
 vim.keymap.set("n", "<C-ř>", function() harpoon:list():select(4) end)
 
 -- Toggle previous & next buffers stored within Harpoon list
-vim.keymap.set("n", "<C-,>", function() harpoon:list():prev() end)
+vim.keymap.set("n", "<C-:>", function() harpoon:list():prev() end)
 vim.keymap.set("n", "<C-.>", function() harpoon:list():next() end)
 
 -- basic telescope configuration
