@@ -61,7 +61,7 @@ keymap("t", "<C-l>", "<C-\\><C-N><C-w>l", term_opts)
 keymap("n", "<leader>ff", ":Telescope find_files<cr>", opts)
 keymap("n", "<leader>fg", ":Telescope live_grep<cr>", opts)
 keymap("n", "<leader>fb", ":Telescope buffers<cr>", opts)
-keymap("n", "<leader>fh", ":Telescope help_tags<cr>", opts)
+--[[ keymap("n", "<leader>fh", ":Telescope help_tags<cr>", opts) ]]
 
 -- LazyGit && LazyDocker --
 keymap("n", "<leader>lg", ":LazyGit<cr>", opts)
