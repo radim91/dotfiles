@@ -52,8 +52,6 @@ return packer.startup(function(use)
     use "numToStr/Comment.nvim"
     use "Pocco81/auto-save.nvim"
     use "lewis6991/gitsigns.nvim"
-    --[[ use "moll/vim-bbye" ]]
-    use "nvim-telescope/telescope-fzf-native.nvim"
     use {"gnikdroy/projections.nvim", branch = "pre_release"}
 
     -- cmp plugins
@@ -62,13 +60,10 @@ return packer.startup(function(use)
     use "hrsh7th/cmp-nvim-lsp"
     use "hrsh7th/cmp-nvim-lua"
 
-    -- snippets
+    -- snippets & LSP
     use "L3MON4D3/LuaSnip" --snippet engine
     use "rafamadriz/friendly-snippets" -- a bunch of snippets to use
-
-    --LSP
     use "williamboman/mason.nvim"
-    --[[ use 'nvimtools/none-ls.nvim' ]]
     use "othree/html5.vim"
     use "neovim/nvim-lspconfig"
 
@@ -81,6 +76,7 @@ return packer.startup(function(use)
     }
     use "HiPhish/rainbow-delimiters.nvim"
     use 'JoosepAlviste/nvim-ts-context-commentstring'
+    use "nvim-telescope/telescope-fzf-native.nvim"
 
     -- LazyGit && LazyDocker
     use "kdheepak/lazygit.nvim"
@@ -132,6 +128,13 @@ return packer.startup(function(use)
         config = function()
             require("colorizer").setup()
         end
+    }
+
+    -- Harpoon --
+    use {
+        "ThePrimeagen/harpoon",
+        branch = "harpoon2",
+        requires = { {"nvim-lua/plenary.nvim"} }
     }
 
     -- Automatically set up your configuration after cloning packer.nvim
