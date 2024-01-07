@@ -52,7 +52,7 @@ return packer.startup(function(use)
     use "numToStr/Comment.nvim"
     use "Pocco81/auto-save.nvim"
     use "lewis6991/gitsigns.nvim"
-    use "moll/vim-bbye"
+    --[[ use "moll/vim-bbye" ]]
     use "nvim-telescope/telescope-fzf-native.nvim"
     use {"gnikdroy/projections.nvim", branch = "pre_release"}
 
@@ -68,10 +68,8 @@ return packer.startup(function(use)
 
     --LSP
     use "williamboman/mason.nvim"
-    use 'nvimtools/none-ls.nvim'
+    --[[ use 'nvimtools/none-ls.nvim' ]]
     use "othree/html5.vim"
-    use "lumiliet/vim-twig"
-    use "nelsyeung/twig.vim"
     use "neovim/nvim-lspconfig"
 
     -- Telescope && treesitter
@@ -120,16 +118,6 @@ return packer.startup(function(use)
            "nvim-tree/nvim-web-devicons" 
         }
     }
-
-    -- Debug --
-    use {
-      "mfussenegger/nvim-dap",
-      dependencies = {
-          "rcarriga/nvim-dap-ui"
-      }
-    }
-    use { "rcarriga/nvim-dap-ui", requires = {"mfussenegger/nvim-dap"} }
-    use "theHamsta/nvim-dap-virtual-text"
     
     -- colors --
     use {
@@ -145,8 +133,6 @@ return packer.startup(function(use)
             require("colorizer").setup()
         end
     }
-
-    use "nvim-telescope/telescope-dap.nvim"
 
     -- Automatically set up your configuration after cloning packer.nvim
     -- Put this at the end after all plugins
