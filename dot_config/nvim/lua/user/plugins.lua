@@ -52,6 +52,7 @@ return packer.startup(function(use)
     use "numToStr/Comment.nvim"
     use "Pocco81/auto-save.nvim"
     use "lewis6991/gitsigns.nvim"
+    use "moll/vim-bbye"
     use {"gnikdroy/projections.nvim", branch = "pre_release"}
 
     -- cmp plugins
