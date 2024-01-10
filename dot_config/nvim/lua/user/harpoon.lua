@@ -5,7 +5,7 @@ harpoon:setup()
 -- REQUIRED
 
 vim.keymap.set("n", "<leader>ha", function() harpoon:list():append() end)
-vim.keymap.set("n", "<leader>hl", function() harpoon.ui:toggle_quick_menu(harpoon:list()) end)
+vim.keymap.set("n", "<leader>hl", function() harpoon.ui:toggle_quick_menu(harpoon:list()) end, { noremap = true, silent = true, desc = 'open harpoon menu' })
 
 -- Toggle previous & next buffers stored within Harpoon list
 vim.keymap.set("n", "<C-ú>", function() harpoon:list():prev() end)
