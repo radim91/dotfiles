@@ -54,6 +54,7 @@ return packer.startup(function(use)
     use "lewis6991/gitsigns.nvim"
     use "moll/vim-bbye"
     use {"gnikdroy/projections.nvim", branch = "pre_release"}
+    use "ThePrimeagen/refactoring.nvim"
 
     -- cmp plugins
     use "hrsh7th/nvim-cmp" -- The completion plugin
