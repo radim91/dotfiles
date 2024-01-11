@@ -38,7 +38,6 @@ lspconfig.emmet_language_server.setup{
     }
 }
 
-
 -- luasnip setup
 local luasnip = require 'luasnip'
 
