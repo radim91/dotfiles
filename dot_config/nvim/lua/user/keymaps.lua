@@ -81,4 +81,4 @@ keymap("n", "<leader>hh", ":noh<cr>", opts)
 
 keymap("n", "<leader>bb", ":Colortils<cr>", opts)
 -- print cwd in string --
-keymap("n", "<leader>fo", ":Oil --float expand('%:p:h'))<cr>", opts)
+keymap("n", "<leader>fo", ":Oil --float %:p:h<cr>", opts)
