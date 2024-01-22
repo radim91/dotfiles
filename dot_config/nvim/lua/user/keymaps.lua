@@ -1,7 +1,6 @@
 local opts = { noremap = true, silent = true } local term_opts = { silent = true }
 -- Shorten function name
 local keymap = vim.api.nvim_set_keymap
-local cwd = vim.fn.getcwd()
 
 --Remap space as leader key
 keymap("", "<Space>", "<Nop>", opts)
@@ -26,8 +25,8 @@ keymap("n", "<C-S-Right>", "<C-w>l", opts)
 -- Resize
 keymap("n", "<C-k>", ":resize +2<CR>", opts)
 keymap("n", "<C-j>", ":resize -2<CR>", opts)
-keymap("n", "<C-l>", ":vertical resize -2<CR>", opts)
-keymap("n", "<C-h>", ":vertical resize +2<CR>", opts)
+keymap("n", "<C-h>", ":vertical resize -2<CR>", opts)
+keymap("n", "<C-l>", ":vertical resize +2<CR>", opts)
 
 -- Navigate buffers
 keymap("n", "<M-Right>", ":bnext<CR>", opts)
@@ -67,9 +66,6 @@ keymap("n", "<leader>fb", ":Telescope buffers<cr>", opts)
 -- LazyGit && LazyDocker --
 keymap("n", "<leader>lg", ":LazyGit<cr>", opts)
 keymap("n", "<leader>ld", ":LazyDocker<cr>", opts)
-
--- NvimTree --
-keymap("n", "<M-+>", ":NvimTreeToggle<cr>", opts)
 
 -- Buffers --
 keymap("n", "<M-q>", ":Bdelete<cr>", opts)
