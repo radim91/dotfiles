@@ -79,4 +79,4 @@ keymap("n", "<leader>ww", ":set wrap!<cr>", opts)
 keymap("n", "<leader>hh", ":noh<cr>", opts)
 
 keymap("n", "<leader>bb", ":Colortils<cr>", opts)
-keymap("n", "<leader>fo", ":Oil --float .<cr>", opts)
+keymap("n", "<leader>fo", ":Oil .<cr>", opts)
