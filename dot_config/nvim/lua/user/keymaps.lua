@@ -1,6 +1,7 @@
 local opts = { noremap = true, silent = true } local term_opts = { silent = true }
 -- Shorten function name
 local keymap = vim.api.nvim_set_keymap
+local cwd = vim.fn.getcwd()
 
 --Remap space as leader key
 keymap("", "<Space>", "<Nop>", opts)
@@ -79,4 +80,5 @@ keymap("n", "<leader>ww", ":set wrap!<cr>", opts)
 keymap("n", "<leader>hh", ":noh<cr>", opts)
 
 keymap("n", "<leader>bb", ":Colortils<cr>", opts)
-keymap("n", "<leader>fo", ":Oil --float .<cr>", opts)
+-- print cwd in string --
+keymap("n", "<leader>fo", ":Oil --float expand('%:p:h'))<cr>", opts)
