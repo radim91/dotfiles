@@ -79,3 +79,7 @@ keymap("n", "<leader>ww", ":set wrap!<cr>", opts)
 keymap("n", "<leader>hh", ":noh<cr>", opts)
 
 keymap("n", "<leader>bb", ":Colortils<cr>", opts)
+keymap("n", "<leader>fo", function()
+    vim.cmd("vsplit | wincmd 1")
+    require("oil").open()
+end)
