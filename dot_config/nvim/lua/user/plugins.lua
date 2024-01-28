@@ -67,6 +67,13 @@ return packer.startup(function(use)
     use "rafamadriz/friendly-snippets" -- a bunch of snippets to use
     use "williamboman/mason.nvim"
     use "othree/html5.vim"
+     use ({
+        'nvimdev/lspsaga.nvim',
+        after = 'nvim-lspconfig',
+        config = function()
+            require('lspsaga').setup({})
+        end,
+    })   
     use "neovim/nvim-lspconfig"
 
     -- Telescope && treesitter
