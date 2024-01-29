@@ -3,7 +3,7 @@ if not status_ok then
   return
 end
 
-local lspsaga = require("lspsaga")
+--[[ local lspsaga = require("lspsaga") ]]
 local FilePath = require("sttusline.component").new()
 
 FilePath.set_timing(true)
@@ -27,7 +27,7 @@ sttusline.setup({
         "git-branch",
         "git-diff",
         "%=",
-        (lspsaga.symbol.winbar).get_bar(),
+        FilePath,
         "diagnostics",
         "indent",
         "pos-cursor",
