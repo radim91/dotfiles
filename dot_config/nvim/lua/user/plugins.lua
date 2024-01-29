@@ -68,20 +68,6 @@ return packer.startup(function(use)
     use "williamboman/mason.nvim"
     use "othree/html5.vim"
     use "neovim/nvim-lspconfig"
-    use ({
-        'nvimdev/lspsaga.nvim',
-        after = 'nvim-lspconfig',
-        config = function()
-            require('lspsaga').setup({
-                symbol_in_winbar = {
-                    enable = false
-                },
-                ui = {
-                    virtual_text = false,
-                }
-            })
-        end,
-    })
 
     -- Telescope && treesitter
     use "nvim-telescope/telescope.nvim"
