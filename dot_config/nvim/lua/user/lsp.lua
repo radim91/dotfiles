@@ -2,6 +2,7 @@
 local capabilities = require("cmp_nvim_lsp").default_capabilities()
 
 local lspconfig = require('lspconfig')
+local lspsaga = require('lspsaga')
 
 lspconfig.phpactor.setup{
     on_attach = on_attach,
