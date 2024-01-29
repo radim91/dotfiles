@@ -26,7 +26,7 @@ sttusline.setup({
         "git-branch",
         "git-diff",
         "%=",
-        FilePath,
+        require(lspsaga.symbol.winbar).get_bar(),
         "diagnostics",
         "indent",
         "pos-cursor",

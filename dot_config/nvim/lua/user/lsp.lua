@@ -2,6 +2,7 @@
 local capabilities = require("cmp_nvim_lsp").default_capabilities()
 
 local lspconfig = require('lspconfig')
+local lspsaga = require('lspsaga')
 
 lspconfig.phpactor.setup{
     on_attach = on_attach,
@@ -88,6 +89,12 @@ vim.keymap.set('n', '<space>e', vim.diagnostic.open_float)
 vim.keymap.set('n', '[d', vim.diagnostic.goto_prev)
 vim.keymap.set('n', ']d', vim.diagnostic.goto_next)
 vim.keymap.set('n', '<space>q', vim.diagnostic.setloclist)
+
+lspsaga.setup({
+    symbol_in_winbar = {
+        enable = false
+    }
+})
 
 -- Use LspAttach autocommand to only map the following keys
 -- after the language server attaches to the current buffer
