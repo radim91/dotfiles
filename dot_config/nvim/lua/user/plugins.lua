@@ -75,6 +75,9 @@ return packer.startup(function(use)
             require('lspsaga').setup({
                 symbol_in_winbar = {
                     enable = false
+                },
+                ui = {
+                    virtual_text = false,
                 }
             })
         end,
