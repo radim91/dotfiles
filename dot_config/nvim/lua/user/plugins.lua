@@ -70,7 +70,10 @@ return packer.startup(function(use)
     use "neovim/nvim-lspconfig"
     use ({
         'nvimdev/lspsaga.nvim',
-        after = 'nvim-lspconfig'
+        after = 'nvim-lspconfig',
+        config = function()
+            require('lspsaga').setup({})
+        end,
     })
 
     -- Telescope && treesitter
