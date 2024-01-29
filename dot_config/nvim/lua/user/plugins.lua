@@ -72,7 +72,11 @@ return packer.startup(function(use)
         'nvimdev/lspsaga.nvim',
         after = 'nvim-lspconfig',
         config = function()
-            require('lspsaga').setup({})
+            require('lspsaga').setup({
+                symbol_in_winbar = {
+                    enable = false
+                }
+            })
         end,
     })
 

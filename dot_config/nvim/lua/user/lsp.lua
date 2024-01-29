@@ -2,7 +2,6 @@
 local capabilities = require("cmp_nvim_lsp").default_capabilities()
 
 local lspconfig = require('lspconfig')
-local lspsaga = require('lspsaga')
 
 lspconfig.phpactor.setup{
     on_attach = on_attach,
@@ -83,12 +82,6 @@ cmp.setup {
     { name = 'luasnip' },
   },
 }
-
-lspsaga.setup({
-    symbol_in_winbar = {
-        enable = false
-    }
-})
 
 -- See `:help vim.diagnostic.*` for documentation on any of the below functions
 vim.keymap.set('n', '<space>e', vim.diagnostic.open_float)
