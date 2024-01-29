@@ -6,10 +6,10 @@ local lspconfig = require('lspconfig')
 lspconfig.phpactor.setup{
     on_attach = on_attach,
     capabilities = capabilities,
-    init_options = {
-        ["language_server_phpstan.enabled"] = true,
-        ["language_server_psalm.enabled"] = false,
-    }
+    --[[ init_options = { ]]
+    --[[     ["language_server_phpstan.enabled"] = true, ]]
+    --[[     ["language_server_psalm.enabled"] = false, ]]
+    --[[ } ]]
 }
 
 lspconfig.tsserver.setup{

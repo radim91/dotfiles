@@ -3,7 +3,6 @@ if not status_ok then
   return
 end
 
---[[ local lspsaga = require("lspsaga") ]]
 local FilePath = require("sttusline.component").new()
 
 FilePath.set_timing(true)
