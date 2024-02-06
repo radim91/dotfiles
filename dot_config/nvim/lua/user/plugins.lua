@@ -55,6 +55,14 @@ return packer.startup(function(use)
     use "moll/vim-bbye"
     use {"gnikdroy/projections.nvim", branch = "pre_release"}
     use "ThePrimeagen/refactoring.nvim"
+    use {
+      'nvimdev/dashboard-nvim',
+      event = 'VimEnter',
+      config = function()
+        require('dashboard').setup {}
+      end,
+      requires = {'nvim-tree/nvim-web-devicons'}
+    }
 
     -- cmp plugins
     use "hrsh7th/nvim-cmp" -- The completion plugin
