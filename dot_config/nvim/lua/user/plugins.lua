@@ -63,6 +63,7 @@ return packer.startup(function(use)
       end,
       requires = {'nvim-tree/nvim-web-devicons'}
     }
+    use "nvim-pack/nvim-spectre";
 
     -- cmp plugins
     use "hrsh7th/nvim-cmp" -- The completion plugin
