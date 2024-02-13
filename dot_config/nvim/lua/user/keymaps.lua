@@ -64,9 +64,14 @@ keymap("n", "<leader>fg", ":Telescope live_grep<cr>", opts)
 keymap("n", "<leader>fb", ":Telescope buffers<cr>", opts)
 --[[ keymap("n", "<leader>fh", ":Telescope help_tags<cr>", opts) ]]
 
--- LazyGit && LazyDocker --
+-- Git && Docker --
 keymap("n", "<leader>lg", ":LazyGit<cr>", opts)
 keymap("n", "<leader>ld", ":LazyDocker<cr>", opts)
+keymap("n", "<leader>gp", ":Gitsigns preview_hunk<cr>", opts)
+keymap("n", "<leader>gt", ":Gitsigns toggle_current_line_blame<cr>", opts)
+keymap("n", "<leader>gb", ":Git blame<cr>", opts)
+keymap("n", "<leader>gd", ":Git diff<cr>", opts)
+keymap("n", "<leader>gm", ":Git mergetool<cr>", opts)
 
 -- Buffers --
 keymap("n", "<M-q>", ":Bdelete<cr>", opts)

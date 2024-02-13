@@ -3,6 +3,11 @@ if not status_ok then
   return
 end
 
+local status_ok, fugitive = pcall(require, "fugitive")
+if not status_ok then
+  return
+end
+
 gitsigns.setup {
   signs = {
     add = { hl = "GitSignsAdd", text = "▎", numhl = "GitSignsAddNr", linehl = "GitSignsAddLn" },
@@ -47,3 +52,6 @@ gitsigns.setup {
   },
 }
 
+fugitive.setup {
+
+}
