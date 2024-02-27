@@ -24,6 +24,10 @@ config.show_new_tab_button_in_tab_bar = true
 config.show_tab_index_in_tab_bar = false
 config.prefer_to_spawn_tabs = true
 
+config.colors = {
+    background = "#2C2E34",
+}
+
 config.keys = {
   {
     key = 'n',
