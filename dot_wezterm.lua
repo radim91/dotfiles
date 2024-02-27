@@ -38,9 +38,7 @@ wezterm.on("gui-startup", function()
   window:gui_window():maximize()
 end)
 
-wezterm.action.SpawnCommandInNewWindow {
-    cwd = '/home/radim/dev'
-}
+config.default_cwd = "/home/radim/dev"
 -- and finally, return the configuration to wezterm
 return config
 
