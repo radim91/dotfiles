@@ -52,10 +52,10 @@ config.keys = {
 }
 
 config.window_padding = {
-  left = 3,
-  right = 3,
+  left = 5,
+  right = 5,
   top = 15,
-  bottom = 3,
+  bottom = 2,
 }
 
 config.default_cwd = "/home/radim/dev"
