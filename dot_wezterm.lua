@@ -34,7 +34,7 @@ config.keys = {
   {
     key = 'c',
     mods = 'LEADER',
-    action = wezterm.action.SpawnTab { 'CurrentPaneDomain' },
+    action = wezterm.action.SpawnTab 'DefaultDomain',
   },
   {
     key = 'q',
