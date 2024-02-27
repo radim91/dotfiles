@@ -38,9 +38,9 @@ wezterm.on("gui-startup", function()
   window:gui_window():maximize()
 end)
 
-wezterm.action.SpawnCommandInNewTab({
+wezterm.action.SpawnCommandInNewWindow {
     cwd = '~/dev'
-})
+}
 -- and finally, return the configuration to wezterm
 return config
 
