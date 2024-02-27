@@ -32,7 +32,7 @@ config.keys = {
 config.window_padding = {
   left = 1,
   right = 1,
-  top = 4,
+  top = 7,
   bottom = 1,
 }
 
