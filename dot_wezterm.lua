@@ -46,8 +46,8 @@ config.window_padding = {
 }
 
 config.tab_bar_style = {
-  window_hide = false,
-  window_maximize = false,  
+  window_hide = "",
+  window_maximize = "",  
 }
 
 config.default_cwd = "/home/radim/dev"
