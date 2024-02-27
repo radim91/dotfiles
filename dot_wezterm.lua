@@ -19,6 +19,7 @@ config.font_size = 14
 config.default_prog = { 'fish', '-l' }
 config.leader = { key = 'a', mods = 'CTRL', timeout_milliseconds = 1000 }
 config.disable_default_key_bindings = true
+config.integrated_title_buttons = { 'Close' }
 
 config.keys = {
   {
