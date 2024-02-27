@@ -15,7 +15,7 @@ config.window_decorations = "INTEGRATED_BUTTONS|RESIZE"
 config.integrated_title_button_style = "Gnome"
 config.font = wezterm.font "Inconsolata Nerd Font Mono"
 config.warn_about_missing_glyphs = false
-config.font_size = 14
+config.font_size = 14.5
 config.default_prog = { 'fish', '-l' }
 config.leader = { key = 'a', mods = 'CTRL', timeout_milliseconds = 1000 }
 config.disable_default_key_bindings = true
