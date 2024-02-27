@@ -2,6 +2,11 @@
 local wezterm = require 'wezterm'
 local mux = wezterm.mux
 
+wezterm.on("gui-startup", function()
+  local tab, pane, window = mux.spawn_window{}
+  window:gui_window():maximize()
+end)
+
 -- This will hold the configuration.
 local config = wezterm.config_builder()
 
@@ -21,7 +26,11 @@ config.keys = {
     mods = 'LEADER',
     action = wezterm.action.ActivateTabRelative(1)
   },
-  -- Send "CTRL-A" to the terminal when pressing CTRL-A, CTRL-A
+  {
+    key = 'q',
+    mods = 'LEADER',
+    action = wezterm.action.QuitApplication { confirm = true },
+  },
   {
     key = 'a',
     mods = 'LEADER|CTRL',
@@ -36,10 +45,10 @@ config.window_padding = {
   bottom = 0,
 }
 
-wezterm.on("gui-startup", function()
-  local tab, pane, window = mux.spawn_window{}
-  window:gui_window():maximize()
-end)
+config.tab_bar_style = {
+  window_hide = false,
+  window_maximize = false,  
+}
 
 config.default_cwd = "/home/radim/dev"
 -- and finally, return the configuration to wezterm
