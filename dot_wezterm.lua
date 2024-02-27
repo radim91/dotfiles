@@ -8,6 +8,7 @@ config.window_decorations = "INTEGRATED_BUTTONS|RESIZE"
 config.font = wezterm.font 'Inconsolata Nerd Font'
 config.warn_about_missing_glyphs = false
 config.font_size = 13.5
+config.default_prog = { '/usr/local/bin/fish', '-l' }
 
 config.window_padding = {
   left = 0,
