@@ -9,7 +9,7 @@ config.color_scheme = "Catppuccin Mocha"
 config.window_decorations = "INTEGRATED_BUTTONS|RESIZE"
 config.font = wezterm.font "Inconsolata Nerd Font"
 config.warn_about_missing_glyphs = false
-config.font_size = 13.5
+config.font_size = 14
 config.default_prog = { 'fish', '-l' }
 config.leader = { key = 'a', mods = 'CTRL', timeout_milliseconds = 1000 }
 
