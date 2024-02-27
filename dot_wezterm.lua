@@ -46,8 +46,11 @@ config.window_padding = {
 }
 
 config.tab_bar_style = {
-  window_hide = "",
-  window_maximize = "",  
+active_tab_left = wezterm.format {
+    { Background = { Color = '#0b0022' } },
+    { Foreground = { Color = '#2b2042' } },
+    { Text = SOLID_LEFT_ARROW },
+  },
 }
 
 config.default_cwd = "/home/radim/dev"
