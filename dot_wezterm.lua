@@ -29,7 +29,7 @@ config.keys = {
   {
     key = 'q',
     mods = 'LEADER',
-    action = wezterm.action.QuitApplication { confirm = true },
+    action = wezterm.action.QuitApplication,
   },
   {
     key = 'a',
