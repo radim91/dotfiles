@@ -1,4 +1,6 @@
-#!/bin/basweztermm &
+#!/bin/bash
+
+weztermm &
 discord &
 com.spotify.Client &
 firefox-developer-edition &
