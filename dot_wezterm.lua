@@ -5,6 +5,7 @@ local mux = wezterm.mux
 -- This will hold the configuration.
 local config = wezterm.config_builder()
 
+config.color_scheme = 'Catppuccin Mocha'
 config.window_decorations = "INTEGRATED_BUTTONS|RESIZE"
 config.font = wezterm.font 'Inconsolata Nerd Font'
 config.warn_about_missing_glyphs = false
