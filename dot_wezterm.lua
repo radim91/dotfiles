@@ -55,7 +55,7 @@ config.window_padding = {
   left = 5,
   right = 5,
   top = 15,
-  bottom = 2,
+  bottom = 1,
 }
 
 config.default_cwd = "/home/radim/dev"
