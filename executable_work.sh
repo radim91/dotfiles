@@ -1,6 +1,4 @@
-#!/bin/bash
-
-alacritty &
+#!/bin/basweztermm &
 discord &
 com.spotify.Client &
 firefox-developer-edition &
