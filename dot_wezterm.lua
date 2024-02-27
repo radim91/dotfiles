@@ -45,14 +45,6 @@ config.window_padding = {
   bottom = 0,
 }
 
-config.tab_bar_style = {
-active_tab_left = wezterm.format {
-    { Background = { Color = '#0b0022' } },
-    { Foreground = { Color = '#2b2042' } },
-    { Text = SOLID_LEFT_ARROW },
-  },
-}
-
 config.default_cwd = "/home/radim/dev"
 -- and finally, return the configuration to wezterm
 return config
