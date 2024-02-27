@@ -15,7 +15,7 @@ config.keys = {
   {
     key = 'n',
     mods = 'LEADER',
-    action = wezterm.action.ActivateTabRelative(1) })
+    action = wezterm.action.ActivateTabRelative(1)
   },
   -- Send "CTRL-A" to the terminal when pressing CTRL-A, CTRL-A
   {
