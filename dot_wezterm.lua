@@ -39,7 +39,7 @@ wezterm.on("gui-startup", function()
 end)
 
 wezterm.action.SpawnCommandInNewWindow {
-    cwd = '~/dev'
+    cwd = '/home/radim/dev'
 }
 -- and finally, return the configuration to wezterm
 return config
