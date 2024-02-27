@@ -30,10 +30,10 @@ config.keys = {
 }
 
 config.window_padding = {
-  left = 1,
-  right = 1,
+  left = 0,
+  right = 0,
   top = 5,
-  bottom = 1,
+  bottom = 0,
 }
 
 wezterm.on("gui-startup", function()
