@@ -12,6 +12,7 @@ config.warn_about_missing_glyphs = false
 config.font_size = 14
 config.default_prog = { 'fish', '-l' }
 config.leader = { key = 'a', mods = 'CTRL', timeout_milliseconds = 1000 }
+config.disable_default_key_bindings = true
 
 config.keys = {
   {
