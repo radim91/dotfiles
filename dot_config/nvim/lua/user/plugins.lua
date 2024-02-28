@@ -105,10 +105,10 @@ return packer.startup(function(use)
     use {
         "Exafunction/codeium.vim",
         config = function ()
-            vim.keymap.set('i', '<C-q>', function () return vim.fn['codeium#Accept']() end, { expr = true })
-            vim.keymap.set('i', '<C-l>', function() return vim.fn['codeium#CycleCompletions'](1) end, { expr = true })
-            vim.keymap.set('i', '<C-k>', function() return vim.fn['codeium#CycleCompletions'](-1) end, { expr = true })
-            vim.keymap.set('i', '<c-x>', function() return vim.fn['codeium#Clear']() end, { expr = true })
+            vim.keymap.set('i', '<Tab>', function () return vim.fn['codeium#Accept']() end, { expr = true })
+            vim.keymap.set('i', '<S-Tab>', function() return vim.fn['codeium#CycleCompletions'](1) end, { expr = true })
+            vim.keymap.set('i', '<C-S-Tab>', function() return vim.fn['codeium#CycleCompletions'](-1) end, { expr = true })
+            vim.keymap.set('i', '<C-x>', function() return vim.fn['codeium#Clear']() end, { expr = true })
         end
     }
 
