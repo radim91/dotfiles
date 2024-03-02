@@ -11,7 +11,7 @@ end)
 local config = wezterm.config_builder()
 
 config.color_scheme = "Catppuccin Mocha"
-config.window_decorations = "INTEGRATED|RESIZE"
+config.window_decorations = "TITLE|RESIZE"
 config.integrated_title_button_style = "Gnome"
 config.font = wezterm.font "Inconsolata Nerd Font Mono"
 config.warn_about_missing_glyphs = false
