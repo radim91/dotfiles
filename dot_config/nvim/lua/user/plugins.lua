@@ -55,7 +55,6 @@ return packer.startup(function(use)
     use "moll/vim-bbye"
     use {"gnikdroy/projections.nvim", branch = "pre_release"}
     use "ThePrimeagen/refactoring.nvim"
-    use 'andweeb/presence.nvim'
     use {
       'nvimdev/dashboard-nvim',
       event = 'VimEnter',
