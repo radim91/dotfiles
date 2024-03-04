@@ -1,6 +1,6 @@
 #!/bin/bash
 
-weztermm &
+wezterm &
 discord &
 com.spotify.Client &
 firefox-developer-edition &
