@@ -1,7 +1,7 @@
 #!/bin/bash
 
 wezterm &
-discord &
+io.github.gamingdoom.Datcord &
 com.spotify.Client &
 firefox-developer-edition &
 org.mozilla.Thunderbird &
