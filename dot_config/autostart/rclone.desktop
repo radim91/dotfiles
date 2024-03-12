@@ -1,5 +1,5 @@
 [Desktop Entry]
 Type=Application
 Name=rclone
-Exec="rclone" "mount" "pcloud:" "/home/radim/pCloudDrive" "--vfs-cache-mode" "full" "--allow-other"
+Exec="rclone" "mount" "pcloud:" "/home/radim/pCloudDrive" "--vfs-cache-mode" "full"
 X-GNOME-Autostart-enabled=true
