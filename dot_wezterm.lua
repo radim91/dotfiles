@@ -52,12 +52,12 @@ config.keys = {
   {
     key = 'v',
     mods = 'LEADER',
-    action = wezterm.action.PasteFrom 'ClipboardAndPrimarySelection',
+    action = wezterm.action.PasteFrom 'Clipboard',
   },
   {
     key = 'c',
     mods = 'LEADER',
-    action = wezterm.action.CopyTo 'ClipboardAndPrimarySelection',
+    action = wezterm.action.CopyTo 'Clipboard',
   },
   {
     key = 'a',
@@ -74,7 +74,7 @@ config.mouse_bindings = {
 		action = wezterm.action_callback(function(window, pane)
 			local has_selection = window:get_selection_text_for_pane(pane) ~= ""
 			if has_selection then
-				window:perform_action(act.CopyTo("ClipboardAndPrimarySelection"), pane)
+				window:perform_action(act.CopyTo("Clipboard"), pane)
 				window:perform_action(act.ClearSelection, pane)
 			else
 				window:perform_action(act({ PasteFrom = "Clipboard" }), pane)
