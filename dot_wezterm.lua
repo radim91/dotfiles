@@ -74,7 +74,7 @@ config.mouse_bindings = {
 	{
 		event = { Down = { streak = 2, button = "Right" } },
 		mods = "NONE",
-		action = wezterm.action.PasteFrom("ClipboardAndPrimarySelection"),
+		action = wezterm.action.PasteFrom("Clipboard"),
 	},
     {
         event = { Up = { streak = 1, button = 'Left' } },
