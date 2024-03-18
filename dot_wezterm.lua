@@ -52,7 +52,12 @@ config.keys = {
   {
     key = 'v',
     mods = 'LEADER',
-    action = wezterm.action.PasteFrom 'Clipboard',
+    action = wezterm.action.PasteFrom 'ClipboardAndPrimarySelection',
+  },
+  {
+    key = 'c',
+    mods = 'LEADER',
+    action = wezterm.action.CopyTo 'ClipboardAndPrimarySelection',
   },
   {
     key = 'a',
