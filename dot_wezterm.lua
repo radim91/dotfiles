@@ -50,13 +50,13 @@ config.keys = {
     action = wezterm.action.QuitApplication,
   },
   {
-    key = 'V',
-    mods = 'CTRL|LEADER',
+    key = 'v',
+    mods = 'LEADER',
     action = wezterm.action.PasteFrom 'Clipboard',
   },
   {
-    key = 'C',
-    mods = 'CTRL|LEADER',
+    key = 'c',
+    mods = 'LEADER',
     action = wezterm.action.CopyTo 'Clipboard',
   },
   {
