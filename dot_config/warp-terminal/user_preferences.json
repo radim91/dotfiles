@@ -13,6 +13,7 @@
     "WelcomeTipsFeaturesUsed": "[{\"Action\":\"WarpAI\"},{\"Action\":\"ThemePicker\"},{\"Action\":\"CommandPalette\"},{\"Hint\":\"CreateBlock\"},{\"Hint\":\"BlockSelect\"},{\"Action\":\"OpenWarpDrive\"}]",
     "DismissedWarpAIWarmWelcome": "true",
     "FontSize": "17.0",
-    "AIAssistantRequestLimitInfo": "{\"limit\":100,\"num_requests_used_since_refresh\":1,\"next_refresh_time\":\"2024-03-14T13:06:52.599228Z\"}"
+    "AIAssistantRequestLimitInfo": "{\"limit\":100,\"num_requests_used_since_refresh\":1,\"next_refresh_time\":\"2024-03-14T13:06:52.599228Z\"}",
+    "StartupShellOverride": "\"fish\""
   }
 }
