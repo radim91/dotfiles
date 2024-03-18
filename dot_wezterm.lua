@@ -50,6 +50,11 @@ config.keys = {
     action = wezterm.action.QuitApplication,
   },
   {
+    key = 'v',
+    mods = 'LEADER',
+    action = wezterm.action.PasteFrom 'Clipboard',
+  },
+  {
     key = 'a',
     mods = 'LEADER|CTRL',
     action = wezterm.action.SendKey { key = 'a', mods = 'CTRL' },
@@ -71,15 +76,10 @@ config.mouse_bindings = {
 			end
 		end),
 	},
-	{
-		event = { Down = { streak = 2, button = "Right" } },
-		mods = "NONE",
-		action = wezterm.action.PasteFrom("Clipboard"),
-	},
     {
         event = { Up = { streak = 1, button = 'Left' } },
         mods = 'CTRL',
-        action = act.OpenLinkAtMouseCursor,
+        action = wezterm.action.OpenLinkAtMouseCursor,
     },
 }
 
