@@ -53,7 +53,7 @@ config.keys = {
     key = 'a',
     mods = 'LEADER|CTRL',
     action = wezterm.action.SendKey { key = 'a', mods = 'CTRL' },
-  }
+  },
 }
 
 
@@ -71,6 +71,16 @@ config.mouse_bindings = {
 			end
 		end),
 	},
+	{
+		event = { Down = { streak = 2, button = "Right" } },
+		mods = "NONE",
+		action = wezterm.action.PasteFrom("ClipboardAndPrimarySelection"),
+	},
+    {
+        event = { Up = { streak = 1, button = 'Left' } },
+        mods = 'CTRL',
+        action = act.OpenLinkAtMouseCursor,
+    },
 }
 
 config.window_padding = {
