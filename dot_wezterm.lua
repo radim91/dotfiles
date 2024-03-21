@@ -74,6 +74,5 @@ config.window_padding = {
 }
 
 config.default_cwd = "/home/radim/dev"
--- and finally, return the configuration to wezterm
 return config
 
