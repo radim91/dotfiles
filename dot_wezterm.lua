@@ -40,7 +40,7 @@ config.keys = {
     action = wezterm.action.ActivateTabRelative(-1)
   },
   {
-    key = 'c',
+    key = 'y',
     mods = 'LEADER',
     action = wezterm.action.SpawnTab 'DefaultDomain',
   },
