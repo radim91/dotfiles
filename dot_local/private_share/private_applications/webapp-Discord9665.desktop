@@ -1,0 +1,20 @@
+[Desktop Entry]
+Version=1.0
+Name=Discord
+Comment=Webová aplikace
+Exec=sh -c 'XAPP_FORCE_GTKWINDOW_ICON="discord" firefox --class WebApp-Discord9665 --name WebApp-Discord9665 --profile /home/radim/.local/share/ice/firefox/Discord9665 --no-remote "https://discord.com/channels/@me"'
+Terminal=false
+X-MultipleArgs=false
+Type=Application
+Icon=discord
+Categories=GTK;WebApps;
+MimeType=text/html;text/xml;application/xhtml_xml;
+StartupWMClass=WebApp-Discord9665
+StartupNotify=true
+X-WebApp-Browser=Firefox
+X-WebApp-URL=https://discord.com/channels/@me
+X-WebApp-CustomParameters=
+X-WebApp-Navbar=false
+X-WebApp-PrivateWindow=false
+X-WebApp-Isolated=true
+
