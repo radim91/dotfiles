@@ -81,7 +81,6 @@ keymap("n", "<M-S-q>", ":Bdelete!<cr>", opts)
 keymap("n", "<leader>ww", ":set wrap!<cr>", opts)
 keymap("n", "<leader>hh", ":noh<cr>", opts)
 
-keymap("n", "<leader>bb", ":Colortils picker<cr>", opts)
 keymap("n", "<leader>fo", ":Oil --float %:p:h<cr>", opts)
 keymap("n", "<C-s>", ":vsplit<cr>", opts)
 keymap("n", '<leader>S', '<cmd>lua require("spectre").toggle()<CR>', {

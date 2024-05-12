@@ -123,13 +123,6 @@ return packer.startup(function(use)
     
     -- colors --
     use {
-        "max397574/colortils.nvim",
-        cmd = "Colortils",
-        config = function()
-            require("colortils").setup()
-        end,
-    }
-    use {
         "NvChad/nvim-colorizer.lua",
         config = function()
             require("colorizer").setup()
