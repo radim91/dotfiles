@@ -84,7 +84,6 @@ return packer.startup(function(use)
     use 'nvim-telescope/telescope-media-files.nvim'
     use {
         "nvim-treesitter/nvim-treesitter",
-        commit = 'c579d18',
         run = ":TSUpdate",
     }
     use "HiPhish/rainbow-delimiters.nvim"
