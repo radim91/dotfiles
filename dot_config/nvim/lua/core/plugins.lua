@@ -30,6 +30,10 @@ local plugins = {
     'hrsh7th/cmp-nvim-lua',
     'L3MON4D3/LuaSnip',
     'Exafunction/codeium.vim',
+    config = function()
+        require("codeium").setup({
+        })
+    end,
 
     -- search --
     'nvim-telescope/telescope.nvim', dependencies = { 'nvim-lua/plenary.nvim' },
