@@ -1,0 +1,8 @@
+require("core.options")
+require("core.plugins")
+require("core.keymaps")
+require("core.search")
+require("core.treesitter")
+require("core.lsp")
+require("core.git")
+require("core.misc")
