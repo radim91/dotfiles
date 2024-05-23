@@ -50,7 +50,6 @@ local plugins = {
     'nvimdev/dashboard-nvim', event = 'VimEnter', dependencies = { {'nvim-tree/nvim-web-devicons'}},
     'sainnhe/sonokai', priority = 1000,
     'sontungexpt/sttusline', dependecies = { 'nvim-tree/nvim-web-devicons' },
-    'okuuva/auto-save.nvim',
 }
 
 local opts = {}

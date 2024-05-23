@@ -33,18 +33,10 @@ require("sttusline").setup({
     },
 })
 
-require("auto-save").setup({
-    enabled = true,
-    execution_message = "AutoSave: saved at " .. vim.fn.strftime("%H:%M:%S"),
-    events = {"InsertLeave", "TextChanged"},
-    conditions = {
-        exists = true,
-        filename_is_not = {},
-        filetype_is_not = {},
-        modifiable = true
-    },
-    write_all_buffers = false,
-    on_off_commands = true,
-    clean_command_line_interval = 0,
-    debounce_delay = 135
+vim.api.nvim_create_autocmd({ "BufLeave", "FocusLost" }, {
+  callback = function()
+    if vim.bo.modified and not vim.bo.readonly and vim.fn.expand("%") ~= "" and vim.bo.buftype == "" then
+      vim.api.nvim_command('silent update')
+    end
+  end,
 })
