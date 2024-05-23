@@ -2,7 +2,7 @@ vim.cmd.colorscheme "sonokai"
 
 require("scrollbar").setup()
 require("dashboard").setup()
-require("nvim-notify").setup()
+require("notify").setup()
 
 local FilePath = require("sttusline.component").new()
 
