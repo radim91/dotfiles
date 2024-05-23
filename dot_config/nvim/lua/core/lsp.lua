@@ -104,4 +104,7 @@ vim.api.nvim_create_autocmd('LspAttach', {
     end,
 })
 
-require("lspkind").init()
+require("lspkind").init({
+    mode = 'symbol_text',
+    preset = 'codicons',
+})
