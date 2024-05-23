@@ -18,7 +18,7 @@ local plugins = {
     'MunifTanjim/nui.nvim',
 
     -- treesitter --
-    'nvim-treesitter/nvim-treesitter', build = { ":TSUpdate" },
+    'nvim-treesitter/nvim-treesitter',
     'HiPhish/rainbow-delimiters.nvim',
 
     -- auto completion --
