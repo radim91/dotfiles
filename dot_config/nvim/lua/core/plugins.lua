@@ -58,6 +58,7 @@ local plugins = {
     'sainnhe/sonokai', priority = 1000,
     'sontungexpt/sttusline', dependecies = { 'nvim-tree/nvim-web-devicons' },
     'folke/persistence.nvim', event = "BufReadPre",
+    'rcarriga/nvim-notify',
 }
 
 local opts = {}
