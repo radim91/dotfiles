@@ -22,7 +22,7 @@ local plugins = {
     'HiPhish/rainbow-delimiters.nvim',
 
     -- auto completion --
-    'windwp/nvim-autopairs',
+    'windwp/nvim-autopairs', event = "InsertEnter", config = true,
     'neovim/nvim-lspconfig',
     'hrsh7th/nvim-cmp',
     'saadparwaiz1/cmp_luasnip',
