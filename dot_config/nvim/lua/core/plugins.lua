@@ -30,6 +30,7 @@ local plugins = {
     'hrsh7th/cmp-nvim-lua',
     'L3MON4D3/LuaSnip',
     'onsails/lspkind.nvim',
+    'kylechui/nvim-surround', version = "*", event = "VeryLazy",
     'Exafunction/codeium.vim',
     config = function()
         require("codeium").setup({
