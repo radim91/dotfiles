@@ -20,6 +20,7 @@ local options = {
     timeoutlen = 1000,
     showmode = false,
     signcolumn = "yes",
+    wrap = false,
     guifont = "Inconsolata Nerd Font Mono:h17",
 }
 
