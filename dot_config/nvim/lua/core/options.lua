@@ -21,6 +21,7 @@ local options = {
     showmode = false,
     signcolumn = "yes",
     wrap = false,
+    pumheight = 10,
     guifont = "Inconsolata Nerd Font Mono:h17",
 }
 
