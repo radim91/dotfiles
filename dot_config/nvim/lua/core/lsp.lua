@@ -36,6 +36,11 @@ lspconfig.emmet_language_server.setup{
     }
 }
 
+lspconfig.clangd.setup{
+    on_attach = on_attach,
+    capabilities = capabilities
+}
+
 local luasnip = require 'luasnip'
 local cmp = require 'cmp'
 
