@@ -33,12 +33,7 @@ local plugins = {
     'L3MON4D3/LuaSnip',
     'onsails/lspkind.nvim',
     'kylechui/nvim-surround', version = "*", event = "VeryLazy",
-    'supermaven-inc/supermaven-nvim',
-    --[[ 'Exafunction/codeium.vim', ]]
-    --[[ config = function() ]]
-    --[[     require("codeium").setup({ ]]
-    --[[     }) ]]
-    --[[ end, ]]
+    "monkoose/neocodeium", event = "VeryLazy",
 
     -- search --
     'nvim-telescope/telescope.nvim', dependencies = { 'nvim-lua/plenary.nvim' },
