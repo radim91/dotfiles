@@ -3,6 +3,7 @@ vim.g.maplocalleader = ' '
 
 local opts = { silent = true }
 local keymap = vim.api.nvim_set_keymap
+local neocodeium = require("neocodeium").setup()
 
 -- Codeium --
 vim.keymap.set("i", "<M-f>", function() neocodeium.accept() end)
