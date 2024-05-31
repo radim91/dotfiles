@@ -38,7 +38,7 @@ local plugins = {
         local neocodeium = require("neocodeium")
         neocodeium.setup()
         vim.keymap.set("i", "<A-f>", neocodeium.accept)
-    end
+    end,
 
     -- search --
     'nvim-telescope/telescope.nvim', dependencies = { 'nvim-lua/plenary.nvim' },
