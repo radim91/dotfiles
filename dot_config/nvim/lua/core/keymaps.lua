@@ -3,10 +3,11 @@ vim.g.maplocalleader = ' '
 
 local opts = { silent = true }
 local keymap = vim.api.nvim_set_keymap
-local neocodeium = require("neocodeium").setup()
 
 -- Codeium --
-vim.keymap.set("i", "<M-f>", function() neocodeium.accept() end)
+vim.keymap.set("i", "<M-f>", function()
+    require("neocodeium").accept()
+end)
 
 -- Search --
 keymap("n", "<leader>fo", ":Oil --float %:p:h<cr>", opts)
