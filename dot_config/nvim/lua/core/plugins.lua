@@ -34,6 +34,11 @@ local plugins = {
     'onsails/lspkind.nvim',
     'kylechui/nvim-surround', version = "*", event = "VeryLazy",
     "monkoose/neocodeium", event = "VeryLazy",
+    config = function ()
+        local neocodeium = require("neocodeium")
+        neocodeium.setup()
+        vim.keymap.set("i", "<Tab>", neocodeium.accept)
+    end
 
     -- search --
     'nvim-telescope/telescope.nvim', dependencies = { 'nvim-lua/plenary.nvim' },
