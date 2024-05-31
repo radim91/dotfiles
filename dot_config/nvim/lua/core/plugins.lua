@@ -33,13 +33,11 @@ local plugins = {
     'L3MON4D3/LuaSnip',
     'onsails/lspkind.nvim',
     'kylechui/nvim-surround', version = "*", event = "VeryLazy",
-    "monkoose/neocodeium",
-      event = "VeryLazy",
-      config = function()
-        local neocodeium = require("neocodeium")
-        neocodeium.setup()
-        vim.keymap.set("i", "<A-f>", neocodeium.accept)
-      end,
+    'Exafunction/codeium.vim',
+    config = function()
+        require("codeium").setup({
+        })
+    end,
 
     -- search --
     'nvim-telescope/telescope.nvim', dependencies = { 'nvim-lua/plenary.nvim' },

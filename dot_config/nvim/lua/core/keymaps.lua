@@ -4,6 +4,12 @@ vim.g.maplocalleader = ' '
 local opts = { silent = true }
 local keymap = vim.api.nvim_set_keymap
 
+-- Codeium --
+keymap('i', '<Tab>', ':codeium#Accept<CR>', opts)
+keymap('i', '<S-Tab>', ':codeium#CycleCompletions<CR>', opts)
+keymap('i', '<C-S-Tab>', ':codeium#CycleCompletions<CR>', opts)
+keymap('i', '<C-x>', ':codeium#Clear<CR>', opts)
+
 -- Search --
 keymap("n", "<leader>fo", ":Oil --float %:p:h<cr>", opts)
 keymap("n", "<leader>ff", ":Telescope find_files<cr>", opts)
