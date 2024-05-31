@@ -37,7 +37,7 @@ local plugins = {
     config = function ()
         local neocodeium = require("neocodeium")
         neocodeium.setup()
-        vim.keymap.set("i", "<Tab>", neocodeium.accept)
+        vim.keymap.set("i", "<A-f>", neocodeium.accept)
     end
 
     -- search --
