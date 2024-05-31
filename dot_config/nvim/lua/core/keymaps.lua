@@ -5,10 +5,10 @@ local opts = { silent = true }
 local keymap = vim.api.nvim_set_keymap
 
 -- Codeium --
-keymap('i', '<Tab>', ':neoco<CR>', opts)
-keymap('i', '<S-Tab>', ':codeium#CycleCompletions', opts)
-keymap('i', '<C-S-Tab>', ':codeium#CycleCompletions', opts)
-keymap('i', '<C-x>', ':codeium#Clear', opts)
+keymap('i', '<Tab>', require('neocodeium').accept(), opts)
+--[[ keymap('i', '<S-Tab>', ':codeium#CycleCompletions', opts) ]]
+--[[ keymap('i', '<C-S-Tab>', ':codeium#CycleCompletions', opts) ]]
+--[[ keymap('i', '<C-x>', ':codeium#Clear', opts) ]]
 
 -- Search --
 keymap("n", "<leader>fo", ":Oil --float %:p:h<cr>", opts)
