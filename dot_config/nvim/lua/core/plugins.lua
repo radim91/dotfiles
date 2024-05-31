@@ -33,8 +33,9 @@ local plugins = {
     'L3MON4D3/LuaSnip',
     'onsails/lspkind.nvim',
     'kylechui/nvim-surround', version = "*", event = "VeryLazy",
-    "monkoose/neocodeium", event = "VeryLazy",
-    config = function ()
+    "monkoose/neocodeium",
+    event = "VeryLazy",
+    config = function()
         local neocodeium = require("neocodeium")
         neocodeium.setup()
         vim.keymap.set("i", "<A-f>", neocodeium.accept)
