@@ -5,7 +5,7 @@ local opts = { silent = true }
 local keymap = vim.api.nvim_set_keymap
 
 -- Codeium --
-keymap("i", "<M-f>", function() neocodeium.accept end, opts)
+vim.keymap.set("i", "<M-f>", function() neocodeium.accept() end)
 
 -- Search --
 keymap("n", "<leader>fo", ":Oil --float %:p:h<cr>", opts)
