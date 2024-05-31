@@ -4,6 +4,9 @@ vim.g.maplocalleader = ' '
 local opts = { silent = true }
 local keymap = vim.api.nvim_set_keymap
 
+-- Codeium --
+keymap("i", "<M-f>", function() neocodeium.accept end, opts)
+
 -- Search --
 keymap("n", "<leader>fo", ":Oil --float %:p:h<cr>", opts)
 keymap("n", "<leader>ff", ":Telescope find_files<cr>", opts)
