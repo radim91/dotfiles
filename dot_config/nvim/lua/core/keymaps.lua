@@ -5,7 +5,7 @@ local opts = { silent = true }
 local keymap = vim.api.nvim_set_keymap
 
 -- Codeium --
-keymap('i', '<Tab>', require('neocodeium').accept(), opts)
+keymap('i', '<Tab>', function() require('neocodeium').accept() end, opts)
 --[[ keymap('i', '<S-Tab>', ':codeium#CycleCompletions', opts) ]]
 --[[ keymap('i', '<C-S-Tab>', ':codeium#CycleCompletions', opts) ]]
 --[[ keymap('i', '<C-x>', ':codeium#Clear', opts) ]]
