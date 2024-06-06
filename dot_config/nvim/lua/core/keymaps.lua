@@ -18,6 +18,7 @@ keymap("n", "<leader>fg", ":Telescope live_grep<cr>", opts)
 keymap("n", "<leader>fb", ":Telescope buffers<cr>", opts)
 keymap("n", '<leader>S', '<cmd>lua require("spectre").toggle()<CR>', opts)
 keymap('v', '<leader>sw', '<esc><cmd>lua require("spectre").open_visual()<CR>', opts)
+keymap('n', '<leader>fc', ':AerialToggle<cr>', opts)
 
 -- Buffers --
 keymap("n", "<M-q>", ":Bdelete<cr>", opts)

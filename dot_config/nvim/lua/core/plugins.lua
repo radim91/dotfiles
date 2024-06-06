@@ -46,6 +46,7 @@ local plugins = {
     'numToStr/Comment.nvim',
     'stevearc/oil.nvim', dependencies = { 'nvim-tree/nvim-web-devicons' },
     'nvim-pack/nvim-spectre',
+    'stevearc/aerial.nvim',
 
     -- git & docker --
     'lewis6991/gitsigns.nvim',
