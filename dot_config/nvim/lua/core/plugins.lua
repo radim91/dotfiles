@@ -47,7 +47,7 @@ local plugins = {
     'stevearc/oil.nvim', dependencies = { 'nvim-tree/nvim-web-devicons' },
     'nvim-pack/nvim-spectre',
     'stevearc/aerial.nvim',
-    'otavioschwanck/arrow.nvim', opts = { show_icons = true, leader_key = ';', buffer_leader_ley = 'm' },
+    'otavioschwanck/arrow.nvim',
 
     -- git & docker --
     'lewis6991/gitsigns.nvim',
