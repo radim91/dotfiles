@@ -21,3 +21,5 @@ require("telescope").setup({
         }
     }
 })
+
+require("aerial").setup({})
