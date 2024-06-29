@@ -48,7 +48,6 @@ local plugins = {
     'nvim-pack/nvim-spectre',
     'stevearc/aerial.nvim',
     'otavioschwanck/arrow.nvim',
-    "chrisgrieser/nvim-rip-substitute",	keys = {{ "<leader>fs", function() require("rip-substitute").sub() end,	mode = { "n", "x" }}},
 
     -- git & docker --
     'lewis6991/gitsigns.nvim',
