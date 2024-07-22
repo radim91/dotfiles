@@ -23,7 +23,3 @@ require("telescope").setup({
 })
 
 require("aerial").setup({})
-require("arrow").setup({
-    show_icons = true,
-    leader_key = ';'
-})
