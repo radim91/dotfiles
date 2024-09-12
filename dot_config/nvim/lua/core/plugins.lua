@@ -43,6 +43,7 @@ local plugins = {
     -- search --
     'nvim-telescope/telescope.nvim', dependencies = { 'nvim-lua/plenary.nvim' },
     'nvim-telescope/telescope-fzf-native.nvim',
+    'nvim-telescope/telescope-ui-select.nvim',
     'JoosepAlviste/nvim-ts-context-commentstring',
     'numToStr/Comment.nvim',
     'stevearc/oil.nvim', dependencies = { 'nvim-tree/nvim-web-devicons' },
