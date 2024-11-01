@@ -63,7 +63,6 @@ local plugins = {
     'sontungexpt/sttusline', dependecies = { 'nvim-tree/nvim-web-devicons' },
     'folke/persistence.nvim', event = "BufReadPre",
     'folke/noice.nvim', event = "VeryLazy", dependencies = { 'MunifTanjim/nui.nvim', 'rcarriga/nvim-notify' },
-    'https://gitlab.com/itaranto/preview.nvim',
 }
 
 local opts = {}
