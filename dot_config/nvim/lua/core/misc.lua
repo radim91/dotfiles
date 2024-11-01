@@ -69,3 +69,5 @@ require("noice").setup({
         },
     }
 })
+
+require("preview").setup()
