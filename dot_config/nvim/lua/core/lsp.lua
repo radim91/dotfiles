@@ -36,6 +36,11 @@ lspconfig.emmet_language_server.setup{
     }
 }
 
+lspconfig.pyright.setup{
+    on_attach = on_attach,
+    capabilities = capabilities
+}
+
 lspconfig.clangd.setup{
     on_attach = on_attach,
     capabilities = capabilities
