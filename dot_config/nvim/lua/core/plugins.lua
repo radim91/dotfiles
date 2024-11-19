@@ -36,8 +36,7 @@ local plugins = {
     'kylechui/nvim-surround', version = "*", event = "VeryLazy",
     'Exafunction/codeium.vim',
     config = function()
-        require("codeium").setup({
-        })
+        require("codeium").setup({})
     end,
 
     -- search --
@@ -63,6 +62,12 @@ local plugins = {
     'sontungexpt/sttusline', dependecies = { 'nvim-tree/nvim-web-devicons' },
     'folke/persistence.nvim', event = "BufReadPre",
     'folke/noice.nvim', event = "VeryLazy", dependencies = { 'MunifTanjim/nui.nvim', 'rcarriga/nvim-notify' },
+    'linux-cultist/venv-selector.nvim',
+        dependencies = { 'neovim/nvim-lspconfig', 'nvim-telescope/telescope.nvim', 'mfussenegger/nvim-dap-python' },
+        keys = {
+            { '<leader>vs', '<cmd>VenvSelect<cr>' },
+            { '<leader>vc', '<cmd>VenvSelectCached<cr>' },
+        },
 }
 
 local opts = {}
