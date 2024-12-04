@@ -2,7 +2,7 @@
 
 wezterm &
 gtk-launch webapp-Discord9665.desktop &
-com.spotify.Client &
+dev.alextren.Spot &
 firefox-developer-edition &
 org.mozilla.Thunderbird &
 org.signal.Signal &
