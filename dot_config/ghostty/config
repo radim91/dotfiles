@@ -1,0 +1,10 @@
+shell-integration = fish
+gtk-adwaita = true
+desktop-notifications = true
+window-save-state = always
+working-directory = /home/radim/dev
+command = fish
+window-height = 4000
+window-width = 4000
+font-family = Source Code Pro
+font-size = 13
