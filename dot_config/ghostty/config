@@ -8,4 +8,4 @@ window-height = 4000
 window-width = 4000
 font-family = Source Code Pro
 font-size = 13
-keybind = ctrl+shift+left:ignore
+keybind = ctrl+shift+left=unbind
