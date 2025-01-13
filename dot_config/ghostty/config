@@ -10,4 +10,5 @@ font-family = Source Code Pro
 font-size = 13
 keybind = ctrl+shift+left=unbind
 keybind = ctrl+shift+right=unbind
-
+keybind = ctrl+shift+y=previous_tab
+keybind = ctrl+shift+x=next_tab
