@@ -62,29 +62,39 @@ local plugins = {
     'sontungexpt/sttusline', dependecies = { 'nvim-tree/nvim-web-devicons' },
     'folke/persistence.nvim', event = "BufReadPre",
     'folke/noice.nvim', event = "VeryLazy", dependencies = { 'MunifTanjim/nui.nvim', 'rcarriga/nvim-notify' },
-
-    "robitx/gp.nvim",
-    config = function()
-        local conf = {
-            openai_api_key = os.getenv("OPENAI_API_KEY"), 
-            providers = { 
-                    -- secrets can be strings or tables with command and arguments 
-                    -- secret = { "cat", "path_to/openai_api_key" }, 
-                    -- secret = { "bw", "get", "password", "OPENAI_API_KEY" }, 
-                    -- secret : "sk-...", 
-                    -- secret = os.getenv("env_name.."), 
-                    openai = { 
-                        disable = false, 
-                        endpoint = "https://api.openai.com/v1/chat/completions", 
-                        secret = os.getenv("OPENAI_API_KEY"), 
-                    }, 
-            },
-            cmd_prefix = "Gp", 
-        }
-        require("gp").setup(conf)
-
-        -- Setup shortcuts here (see Usage > Shortcuts in the Documentation/Readme)
-    end,
+"jackMort/ChatGPT.nvim",
+  event = "VeryLazy",
+  config = function()
+    require("chatgpt").setup({
+      -- this config assumes you have OPENAI_API_KEY environment variable set
+      openai_params = {
+        -- NOTE: model can be a function returning the model name
+        -- this is useful if you want to change the model on the fly
+        -- using commands
+        -- Example:
+        -- model = function()
+        --     if some_condition() then
+        --         return "gpt-4-1106-preview"
+        --     else
+        --         return "gpt-3.5-turbo"
+        --     end
+        -- end,
+        model = "gpt-4-1106-preview",
+        frequency_penalty = 0,
+        presence_penalty = 0,
+        max_tokens = 4095,
+        temperature = 0.2,
+        top_p = 0.1,
+        n = 1,
+      }
+    })
+  end,
+  dependencies = {
+    "MunifTanjim/nui.nvim",
+    "nvim-lua/plenary.nvim",
+      "folke/trouble.nvim", -- optional
+    "nvim-telescope/telescope.nvim"
+  }
 }
 
 local opts = {}
