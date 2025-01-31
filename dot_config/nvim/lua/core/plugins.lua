@@ -74,7 +74,7 @@ local plugins = {
       keys = {
         -- Sample keybind for prompt menu. Note that the <c-u> is important for selections to work properly.
         {
-          "<leader>oo",
+          "<leader>lp",
           ":<c-u>lua require('ollama').prompt()<cr>",
           desc = "ollama prompt",
           mode = { "n", "v" },
@@ -82,7 +82,7 @@ local plugins = {
 
         -- Sample keybind for direct prompting. Note that the <c-u> is important for selections to work properly.
         {
-          "<leader>oG",
+          "<leader>lG",
           ":<c-u>lua require('ollama').prompt('Generate_Code')<cr>",
           desc = "ollama Generate Code",
           mode = { "n", "v" },
