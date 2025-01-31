@@ -62,6 +62,14 @@ local plugins = {
     'sontungexpt/sttusline', dependecies = { 'nvim-tree/nvim-web-devicons' },
     'folke/persistence.nvim', event = "BufReadPre",
     'folke/noice.nvim', event = "VeryLazy", dependencies = { 'MunifTanjim/nui.nvim', 'rcarriga/nvim-notify' },
+    "ollama/ollama.nvim",
+      dependencies = {
+        "neovim/nvim-lspconfig",
+      },
+      opts = {
+        model = "deepseek-r1",  -- Výchozí model (llama2, mistral, atd.)
+        url = "http://localhost:11434",  -- URL lokální Ollamy
+      },
 }
 
 local opts = {}
