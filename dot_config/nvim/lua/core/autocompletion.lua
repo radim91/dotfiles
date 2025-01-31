@@ -28,7 +28,7 @@ cmp.event:on("confirm_done", cmp_autopairs.on_confirm_done { map_char = { tex = 
 require("nvim-surround").setup()
 require("gen").setup({
     opts = {
-        model = "deepseek-r1",
+        model = "mistral",
         quit_map = "q",
         retry_map = "<c-r>", -- set keymap to re-send the current prompt
         accept_map = "<c-cr>", -- set keymap to replace the previous selection with the last result
