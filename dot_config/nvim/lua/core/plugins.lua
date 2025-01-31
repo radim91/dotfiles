@@ -62,27 +62,45 @@ local plugins = {
     'sontungexpt/sttusline', dependecies = { 'nvim-tree/nvim-web-devicons' },
     'folke/persistence.nvim', event = "BufReadPre",
     'folke/noice.nvim', event = "VeryLazy", dependencies = { 'MunifTanjim/nui.nvim', 'rcarriga/nvim-notify' },
-    'goropikari/ollama.nvim',
+
+    "nomnivore/ollama.nvim",
       dependencies = {
-        -- 'nvim-telescope/telescope.nvim' -- for telescope integration
+        "nvim-lua/plenary.nvim",
       },
+
+      -- All the user commands added by the plugin
+      cmd = { "Ollama", "OllamaModel", "OllamaServe", "OllamaServeStop" },
+
+      keys = {
+        -- Sample keybind for prompt menu. Note that the <c-u> is important for selections to work properly.
+        {
+          "<leader>oo",
+          ":<c-u>lua require('ollama').prompt()<cr>",
+          desc = "ollama prompt",
+          mode = { "n", "v" },
+        },
+
+        -- Sample keybind for direct prompting. Note that the <c-u> is important for selections to work properly.
+        {
+          "<leader>oG",
+          ":<c-u>lua require('ollama').prompt('Generate_Code')<cr>",
+          desc = "ollama Generate Code",
+          mode = { "n", "v" },
+        },
+      },
+
+      ---@type Ollama.Config
       opts = {
-        -- default config
-        base_url = 'http://localhost:11434',
-        chat = {
-          model = 'deepseek-r1',
-        },
-        window = {
-          layout = 'left', -- 'float', 'left', 'right', 'above', 'below'
-          width = 0.5, -- fractional width of parent
-          height = 0.5, -- fractional height of parent
-          -- Options below only apply to floating windows
-          relative = 'editor',
-          border = 'single', -- 'none', single', 'double', 'rounded', 'solid', 'shadow'
-          title = 'Ollama Chat', -- title of chat window
-        },
-        save_path = vim.fn.stdpath('state') .. '/ollama.nvim/state.json',
-      },
+        model = "deepseek-r1",
+          url = "http://127.0.0.1:11434",
+          serve = {
+            on_start = false,
+            command = "ollama",
+            args = { "serve" },
+            stop_command = "pkill",
+            stop_args = { "-SIGTERM", "ollama" },
+          },
+    }
 }
 
 local opts = {}
