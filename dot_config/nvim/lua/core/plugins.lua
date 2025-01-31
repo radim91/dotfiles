@@ -62,13 +62,26 @@ local plugins = {
     'sontungexpt/sttusline', dependecies = { 'nvim-tree/nvim-web-devicons' },
     'folke/persistence.nvim', event = "BufReadPre",
     'folke/noice.nvim', event = "VeryLazy", dependencies = { 'MunifTanjim/nui.nvim', 'rcarriga/nvim-notify' },
-    "ollama/ollama.nvim",
+    'goropikari/ollama.nvim',
       dependencies = {
-        "neovim/nvim-lspconfig",
+        -- 'nvim-telescope/telescope.nvim' -- for telescope integration
       },
       opts = {
-        model = "deepseek-r1",  -- Výchozí model (llama2, mistral, atd.)
-        url = "http://localhost:11434",  -- URL lokální Ollamy
+        -- default config
+        base_url = 'http://localhost:11434',
+        chat = {
+          model = 'deepseek-r1',
+        },
+        window = {
+          layout = 'left', -- 'float', 'left', 'right', 'above', 'below'
+          width = 0.5, -- fractional width of parent
+          height = 0.5, -- fractional height of parent
+          -- Options below only apply to floating windows
+          relative = 'editor',
+          border = 'single', -- 'none', single', 'double', 'rounded', 'solid', 'shadow'
+          title = 'Ollama Chat', -- title of chat window
+        },
+        save_path = vim.fn.stdpath('state') .. '/ollama.nvim/state.json',
       },
 }
 
