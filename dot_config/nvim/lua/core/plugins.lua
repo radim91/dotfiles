@@ -38,7 +38,6 @@ local plugins = {
     config = function()
         require("codeium").setup({})
     end,
-    "David-Kunz/gen.nvim",
 
     -- search --
     'nvim-telescope/telescope.nvim', dependencies = { 'nvim-lua/plenary.nvim' },
@@ -63,6 +62,22 @@ local plugins = {
     'sontungexpt/sttusline', dependecies = { 'nvim-tree/nvim-web-devicons' },
     'folke/persistence.nvim', event = "BufReadPre",
     'folke/noice.nvim', event = "VeryLazy", dependencies = { 'MunifTanjim/nui.nvim', 'rcarriga/nvim-notify' },
+
+    "nomnivore/ollama.nvim",
+      -- ...omitted
+     
+      opts = {
+        serve = {
+          -- set to true here
+          on_start = true,
+     
+          -- and change the below if you want to serve Ollama in another way
+          command = "ollama",
+          args = { "serve" },
+          stop_command = "pkill",
+          stop_args = { "-SIGTERM", "ollama" },
+        },
+      },
 }
 
 local opts = {}
