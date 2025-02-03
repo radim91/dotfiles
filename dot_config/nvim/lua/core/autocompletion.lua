@@ -30,7 +30,7 @@ require("codecompanion").setup({
     adapters = {
         deepseekr1 = function()
           return require("codecompanion.adapters").extend("ollama", {
-            name = "deepseek", -- Give this adapter a different name to differentiate it from the default ollama adapter
+            name = "deepseekr1",
             schema = {
               model = {
                 default = "deepseek-r1:latest",
