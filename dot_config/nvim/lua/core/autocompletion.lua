@@ -27,11 +27,9 @@ cmp.event:on("confirm_done", cmp_autopairs.on_confirm_done { map_char = { tex = 
 
 require("nvim-surround").setup()
 require("codecompanion").setup({
-adapters = {
-    ollama = {
-      enabled = true,
-      model = "deepseek-r1",
-      endpoint = "http://localhost:11434",
+    strategies = { -- Change the adapters as required
+        chat = { adapter = "ollama" },
+        inline = { adapter = "ollama" },
+        agent = { adapter = "ollama" },
     },
-  },
 })
