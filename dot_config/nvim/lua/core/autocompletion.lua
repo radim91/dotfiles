@@ -26,3 +26,10 @@ end
 cmp.event:on("confirm_done", cmp_autopairs.on_confirm_done { map_char = { tex = "" } })
 
 require("nvim-surround").setup()
+require("codecompanion").setup({
+    strategies = {
+        chat = {
+          adapter = "ollama",
+        },
+    },
+)}
