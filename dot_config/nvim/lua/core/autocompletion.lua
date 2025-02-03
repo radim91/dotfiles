@@ -32,4 +32,4 @@ require("codecompanion").setup({
           adapter = "ollama",
         },
     },
-)}
+})
