@@ -38,11 +38,20 @@ require("codecompanion").setup({
             },
           })
         end,
+        mistral = function()
+            return require("codecompanion.adapters").extend("ollama", {
+                name = "mistral",
+                schema = {
+                    model = {
+                        default = "mistral:latest",
+                    },
+                }
+            })
     },
     strategies = { -- Change the adapters as required
-        chat = { adapter = "deepseekr1" },
-        inline = { adapter = "deepseekr1" },
-        agent = { adapter = "deepseekr1" },
+        chat = { adapter = "mistral" },
+        inline = { adapter = "mistral" },
+        agent = { adapter = "mistral" },
     },
     log_level = "TRACE",
 })
