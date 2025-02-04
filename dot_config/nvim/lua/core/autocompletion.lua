@@ -43,7 +43,7 @@ require("codecompanion").setup({
                 name = "mistral",
                 schema = {
                     model = {
-                        default = "mistral:latest",
+                        default = "mistral",
                     },
                 }
             })
