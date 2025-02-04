@@ -47,6 +47,7 @@ require("codecompanion").setup({
                     },
                 }
             })
+        end,
     },
     strategies = { -- Change the adapters as required
         chat = { adapter = "mistral" },
