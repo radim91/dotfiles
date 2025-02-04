@@ -1,0 +1,6 @@
+[Desktop Entry]
+Name=Work Environment
+Exec="/home/radim/work.sh" %u
+Terminal=false
+Type=Application
+Icon=/home/radim/Obrázky/penguin-alt-symbolic.svg
