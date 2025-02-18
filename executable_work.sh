@@ -1,7 +1,7 @@
 #!/bin/bash
 
 ghostty &
-gtk-launch webapp-Discord9665.desktop &
+discord &
 spotify &
 firefox-developer-edition &
 org.mozilla.Thunderbird &
