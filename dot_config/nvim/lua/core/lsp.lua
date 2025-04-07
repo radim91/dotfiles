@@ -47,9 +47,7 @@ lspconfig.clangd.setup{
 }
 
 lspconfig.sqlls.setup{
-    cmd = { "sql-language-server", "up", "--method", "stdio" },
-    on_attach = on_attach,
-    capabilities = capabilities
+    cmd = { "sql-language-server", "up", "--method", "stdio" }
 }
 
 local luasnip = require 'luasnip'
