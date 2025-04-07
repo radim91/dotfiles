@@ -47,7 +47,6 @@ lspconfig.clangd.setup{
 }
 
 lspconfig.sqls.setup{
-    cmd = { "~/go/bin/sqls" },
     on_attach = on_attach,
     capabilities = capabilities
 }
