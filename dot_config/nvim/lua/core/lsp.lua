@@ -42,6 +42,7 @@ lspconfig.pyright.setup{
 }
 
 lspconfig.clangd.setup{
+    cmd = { "~/go/bin/sqls" }
     on_attach = on_attach,
     capabilities = capabilities
 }
