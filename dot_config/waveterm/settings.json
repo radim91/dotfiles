@@ -1,5 +1,5 @@
 {
   "telemetry:enabled": false,
-  "term:fontsize": 14,
+  "term:fontsize": 15,
   "term:localshellpath": "/usr/bin/fish"
 }
