@@ -1,5 +1,6 @@
 {
   "telemetry:enabled": false,
   "term:fontsize": 15,
-  "term:localshellpath": "/usr/bin/fish"
+  "term:localshellpath": "/usr/bin/fish",
+  "window:nativetitlebar": true
 }
