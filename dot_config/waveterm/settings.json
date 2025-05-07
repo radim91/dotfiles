@@ -1,6 +1,7 @@
 {
   "telemetry:enabled": false,
   "term:fontsize": 15,
+  "term:fontfamily": "Source Code Pro",
   "term:localshellpath": "/usr/bin/fish",
   "window:nativetitlebar": true
 }
