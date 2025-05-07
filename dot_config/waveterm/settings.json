@@ -3,5 +3,7 @@
   "term:fontsize": 15,
   "term:fontfamily": "Source Code Pro",
   "term:localshellpath": "/usr/bin/fish",
-  "window:nativetitlebar": true
+  "window:nativetitlebar": true,
+  "editor:wordwrap": true,
+  "web:setopenlinksinternally": false
 }
