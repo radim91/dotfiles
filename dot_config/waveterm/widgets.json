@@ -1,0 +1,28 @@
+{
+    "bash" : {
+        "icon": "terminal",
+        "color": "#4abc39",
+        "label": "bash",
+        "blockdef": {
+            "meta": {
+                "view": "term",
+                "controller": "shell",
+                "term:localshellpath": "/bin/bash"
+            }
+        }
+    },
+    "vysocina_vpn": {
+        "icon": "network-wired",
+        "color": "#e76310",
+        "label": "V-VPN",
+        "blockdef": {
+            "meta": {
+                "view": "term",
+                "controller": "cmd",
+                "cmd": "~/vysocina-vpn.sh"
+            }
+        }
+    },
+    "defwidget@ai": null,
+    "defwidget@web": null
+}
