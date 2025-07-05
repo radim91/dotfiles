@@ -12,7 +12,12 @@ require("mason-lspconfig").setup({
         "pyright",
         "clangd",
         "sqls"
-    }
+    },
+    handlers = {
+        function(server_name)
+            require("lspconfig")[server_name].setup {}
+        end
+    },
 })
 
 --[[ lspconfig.phpactor.setup{ ]]
