@@ -27,6 +27,7 @@ local plugins = {
     -- auto completion --
     'windwp/nvim-autopairs', event = "InsertEnter", config = true,
     'neovim/nvim-lspconfig',
+    "mason-org/mason.nvim",
     'hrsh7th/nvim-cmp',
     'saadparwaiz1/cmp_luasnip',
     'hrsh7th/cmp-nvim-lsp',
