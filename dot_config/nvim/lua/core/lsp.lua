@@ -4,7 +4,7 @@ local lspconfig = require('lspconfig')
 require("mason").setup()
 require("mason-lspconfig").setup({
     ensure_installed = {
-        "intelephense",
+        "phpactor",
         "ts_ls",
         "gopls",
         "rust_analyzer",
@@ -15,17 +15,13 @@ require("mason-lspconfig").setup({
     }
 })
 
---[[ lspconfig.phpactor.setup{ ]]
---[[     on_attach = on_attach, ]]
---[[     capabilities = capabilities, ]]
---[[     init_options = { ]]
---[[         ["language_server_phpstan.enabled"] = true, ]]
---[[         ["language_server_psalm.enabled"] = false, ]]
---[[     } ]]
---[[ } ]]
-lspconfig.intelephense.setup{
+lspconfig.phpactor.setup{
     on_attach = on_attach,
-    capabilities = capabilities
+    capabilities = capabilities,
+    init_options = {
+        ["language_server_phpstan.enabled"] = true,
+        ["language_server_psalm.enabled"] = false,
+    }
 }
 
 lspconfig.ts_ls.setup{
