@@ -15,12 +15,6 @@ require("mason-lspconfig").setup({
     }
 })
 
-require("mason-lspconfig").setup_handlers {
-    function (server_name)
-        lspconfig[server_name].setup {}
-    end,
-}
-
 --[[ lspconfig.phpactor.setup{ ]]
 --[[     on_attach = on_attach, ]]
 --[[     capabilities = capabilities, ]]
