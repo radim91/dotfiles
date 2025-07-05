@@ -4,7 +4,7 @@ local lspconfig = require('lspconfig')
 require("mason").setup()
 require("mason-lspconfig").setup({
     ensure_installed = {
-        "phpactor",
+        "intelephense",
         "ts_ls",
         "gopls",
         "rust_analyzer",
@@ -12,12 +12,7 @@ require("mason-lspconfig").setup({
         "pyright",
         "clangd",
         "sqls"
-    },
-    handlers = {
-        function(server_name)
-            require("lspconfig")[server_name].setup {}
-        end
-    },
+    }
 })
 
 --[[ lspconfig.phpactor.setup{ ]]
@@ -28,47 +23,51 @@ require("mason-lspconfig").setup({
 --[[         ["language_server_psalm.enabled"] = false, ]]
 --[[     } ]]
 --[[ } ]]
---[[]]
---[[ lspconfig.ts_ls.setup{ ]]
---[[     on_attach = on_attach, ]]
---[[     capabilities = capabilities ]]
---[[ } ]]
---[[]]
---[[ lspconfig.gopls.setup{ ]]
---[[     on_attach = on_attach, ]]
---[[     capabilities = capabilities ]]
---[[ } ]]
---[[]]
---[[ lspconfig.rust_analyzer.setup{ ]]
---[[     on_attach = on_attach, ]]
---[[     capabilities = capabilities ]]
---[[ } ]]
---[[]]
---[[ lspconfig.emmet_language_server.setup{ ]]
---[[     on_attach = on_attach, ]]
---[[     capabilities = capabilities, ]]
---[[     filetypes = { "css", "html.twig", "twig", "html", "latte", "javascriptreact", "less", "pug", "sass", "scss", "typescriptreact" }, ]]
---[[     init_options = { ]]
---[[         showAbbreviationSuggestions = true, ]]
---[[         showExpandedAbbreviation = "always", ]]
---[[         showSuggestionsAsSnippets = true, ]]
---[[     } ]]
---[[ } ]]
---[[]]
---[[ lspconfig.pyright.setup{ ]]
---[[     on_attach = on_attach, ]]
---[[     capabilities = capabilities ]]
---[[ } ]]
---[[]]
---[[ lspconfig.clangd.setup{ ]]
---[[     on_attach = on_attach, ]]
---[[     capabilities = capabilities ]]
---[[ } ]]
---[[]]
---[[ lspconfig.sqls.setup{ ]]
---[[     on_attach = on_attach, ]]
---[[     capabilities = capabilities ]]
---[[ } ]]
+lspconfig.intelephense.setup{
+    on_attach = on_attach,
+    capabilities = capabilities
+}
+
+lspconfig.ts_ls.setup{
+    on_attach = on_attach,
+    capabilities = capabilities
+}
+
+lspconfig.gopls.setup{
+    on_attach = on_attach,
+    capabilities = capabilities
+}
+
+lspconfig.rust_analyzer.setup{
+    on_attach = on_attach,
+    capabilities = capabilities
+}
+
+lspconfig.emmet_language_server.setup{
+    on_attach = on_attach,
+    capabilities = capabilities,
+    filetypes = { "css", "html.twig", "twig", "html", "latte", "javascriptreact", "less", "pug", "sass", "scss", "typescriptreact" },
+    init_options = {
+        showAbbreviationSuggestions = true,
+        showExpandedAbbreviation = "always",
+        showSuggestionsAsSnippets = true,
+    }
+}
+
+lspconfig.pyright.setup{
+    on_attach = on_attach,
+    capabilities = capabilities
+}
+
+lspconfig.clangd.setup{
+    on_attach = on_attach,
+    capabilities = capabilities
+}
+
+lspconfig.sqls.setup{
+    on_attach = on_attach,
+    capabilities = capabilities
+}
 
 local luasnip = require 'luasnip'
 local cmp = require 'cmp'
