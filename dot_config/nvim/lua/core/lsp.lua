@@ -2,6 +2,18 @@ local capabilities = require("cmp_nvim_lsp").default_capabilities()
 local lspconfig = require('lspconfig')
 
 require("mason").setup()
+require("mason-lspconfig").setup({
+    ensure_installed = {
+        "phpactor",
+        "ts_ls",
+        "gopls",
+        "rust_analyzer",
+        "emmet_language_server",
+        "pyright",
+        "clangd",
+        "sqls"
+    }
+})
 
 lspconfig.phpactor.setup{
     on_attach = on_attach,
