@@ -69,3 +69,5 @@ require("noice").setup({
         },
     }
 })
+
+require("vim-coach").setup()
