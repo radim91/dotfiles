@@ -71,7 +71,7 @@ local plugins = {
     },
     "shahshlok/vim-coach.nvim",
       dependencies = {
-        "folke/snacks.nvim",
+        "folke/snacks.nvim"
     }
   },
 }
