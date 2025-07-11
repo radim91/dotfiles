@@ -73,7 +73,7 @@ local plugins = {
       dependencies = {
         "folke/snacks.nvim"
     }
-  },
+  }
 }
 
 local opts = {}
