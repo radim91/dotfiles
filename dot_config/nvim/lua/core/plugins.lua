@@ -69,11 +69,7 @@ local plugins = {
         "nvim-lua/plenary.nvim",
         "nvim-treesitter/nvim-treesitter",
     },
-    "shahshlok/vim-coach.nvim",
-      dependencies = {
-        "folke/snacks.nvim"
-    }
-  }
+    "shahshlok/vim-coach.nvim", dependencies = { "folke/snacks.nvim"  }
 }
 
 local opts = {}
