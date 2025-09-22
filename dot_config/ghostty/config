@@ -1,5 +1,4 @@
 shell-integration = fish
-gtk-adwaita = true
 desktop-notifications = true
 window-save-state = always
 working-directory = /home/radim/dev
