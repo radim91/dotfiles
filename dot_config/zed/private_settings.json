@@ -77,4 +77,24 @@
   "bindings": {
     "escape": "workspace::Save",
   },
+  "tabs":  {
+    "file_icons": true
+  },
+  "tab_bar": {
+    "show_nav_history_buttons": false,
+    "show_tab_bar_buttons": false
+  },
+  "toolbar": {
+    "breadcrumbs": false,
+    "quick_actions": false
+  },
+  "scrollbar": {
+    "cursors": false
+  },
+  "gutter": {
+    "min_line_number_digits": 3,
+    "runnables": false,
+    "breakpoints": false,
+    "folds": false
+  }
 }
