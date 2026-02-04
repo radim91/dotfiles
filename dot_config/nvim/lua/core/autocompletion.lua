@@ -27,32 +27,13 @@ cmp.event:on("confirm_done", cmp_autopairs.on_confirm_done { map_char = { tex = 
 
 require("nvim-surround").setup()
 require("codecompanion").setup({
-    adapters = {
-        deepseekr1 = function()
-          return require("codecompanion.adapters").extend("ollama", {
-            name = "deepseekr1",
-            schema = {
-              model = {
-                default = "deepseek-r1:latest",
-              },
-            },
-          })
-        end,
-        mistral = function()
-            return require("codecompanion.adapters").extend("ollama", {
-                name = "mistral",
-                schema = {
-                    model = {
-                        default = "mistral",
-                    },
-                }
-            })
-        end,
+  interactions = {
+    chat = {
+      adapter = "anthropic",
+      model = "claude-sonnet-4-20250514"
     },
-    strategies = { -- Change the adapters as required
-        chat = { adapter = "mistral" },
-        inline = { adapter = "mistral" },
-        agent = { adapter = "mistral" },
-    },
-    log_level = "TRACE",
+  },
+  opts = {
+    log_level = "DEBUG",
+  },
 })
