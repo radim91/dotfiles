@@ -73,4 +73,8 @@
   "ui_font_size": 16,
   "buffer_font_size": 16.0,
   "theme": "Graphene",
+  "context": "Editor && vim_mode == insert && !menu",
+  "bindings": {
+    "escape": "workspace::Save",
+  },
 }
