@@ -33,13 +33,13 @@
   {
     "context": "((VimControl && !menu) || (!Editor && !Terminal))",
     "bindings": {
-      "alt-shift-right": "workspace::ActivateNextPane"
+      "ctrl-shift-right": "workspace::ActivateNextPane"
     }
   },
   {
     "context": "((VimControl && !menu) || (!Editor && !Terminal))",
     "bindings": {
-      "alt-shift-left": "workspace::ActivatePreviousPane"
+      "ctrl-shift-left": "workspace::ActivatePreviousPane"
     }
   },
   {
@@ -117,6 +117,36 @@
     "context": "(Editor && mode == full)",
     "bindings": {
       "space f f": "file_finder::Toggle"
+    }
+  },
+  {
+    "context": "((VimControl && !menu) || (!Editor && !Terminal))",
+    "bindings": {
+      "alt-shift-right": "vim::ResizePaneLeft"
+    }
+  },
+  {
+    "context": "((VimControl && !menu) || (!Editor && !Terminal))",
+    "bindings": {
+      "alt-shift-left": "vim::ResizePaneRight"
+    }
+  },
+  {
+    "context": "((vim_mode == helix_normal || vim_mode == helix_select) && !menu)",
+    "bindings": {
+      "space a": "editor::ToggleCodeActions"
+    }
+  },
+  {
+    "context": "(VimControl && !menu)",
+    "bindings": {
+      "space a c": "editor::ToggleCodeActions"
+    }
+  },
+  {
+    "context": "Workspace",
+    "bindings": {
+      "space f b": "tab_switcher::Toggle"
     }
   }
 ]
