@@ -7,8 +7,19 @@
 // custom settings, run `zed: open default settings` from the
 // command palette (cmd-shift-p / ctrl-shift-p)
 {
+  "edit_predictions": {
+    "disabled_globs": [".env"],
+    "codestral": {
+      "api_url": "https://codestral.mistral.ai/v1/fim/completions",
+      "max_tokens": 150,
+    },
+    "mode": "eager",
+  },
+  "features": {
+    "edit_prediction_provider": "codestral",
+  },
   "file_finder": {
-    "modal_max_width": "small"
+    "modal_max_width": "small",
   },
   "use_smartcase_search": true,
   "window_decorations": "client",
@@ -44,7 +55,7 @@
   },
   "ui_font_family": "Inter",
   "buffer_line_height": "comfortable",
-  "buffer_font_family": "Inconsolata Nerd Font Mono",
+  "buffer_font_family": "FiraMono Nerd Font Mono",
   "agent": {
     "default_model": {
       "provider": "mistral",
