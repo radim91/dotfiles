@@ -29,8 +29,8 @@ require("nvim-surround").setup()
 require("codecompanion").setup({
   interactions = {
     chat = {
-      adapter = "anthropic",
-      model = "claude-sonnet-4-20250514"
+      adapter = "mistral",
+      model = "devstral-medium-latest"
     },
   },
   opts = {
