@@ -30,7 +30,6 @@ require("codecompanion").setup({
   interactions = {
     chat = {
       adapter = "mistral",
-      model = "devstral-medium-latest"
     },
   },
   opts = {
