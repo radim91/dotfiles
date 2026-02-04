@@ -1,0 +1,65 @@
+// Zed settings
+//
+// For information on how to configure Zed, see the Zed
+// documentation: https://zed.dev/docs/configuring-zed
+//
+// To see all of Zed's default settings without changing your
+// custom settings, run `zed: open default settings` from the
+// command palette (cmd-shift-p / ctrl-shift-p)
+{
+  "file_finder": {
+    "modal_max_width": "small"
+  },
+  "use_smartcase_search": true,
+  "window_decorations": "client",
+  "prettier": {
+    "allowed": true,
+  },
+  "preferred_line_length": 120,
+  "soft_wrap": "preferred_line_length",
+  "notification_panel": {
+    "dock": "left",
+  },
+  "project_panel": {
+    "starts_open": false,
+    "file_icons": true,
+  },
+  "terminal": {
+    "shell": {
+      "program": "fish",
+    },
+  },
+  "git": {
+    "blame": {
+      "show_avatar": false,
+    },
+    "inline_blame": {
+      "enabled": false,
+    },
+  },
+  "autosave": {
+    "after_delay": {
+      "milliseconds": 1000,
+    },
+  },
+  "ui_font_family": "Inter",
+  "buffer_line_height": "comfortable",
+  "buffer_font_family": "Inconsolata Nerd Font Mono",
+  "agent": {
+    "default_model": {
+      "provider": "mistral",
+      "model": "devstral-medium-latest",
+    },
+    "favorite_models": [],
+    "model_parameters": [],
+  },
+  "session": {
+    "trust_all_worktrees": true,
+  },
+  "base_keymap": "JetBrains",
+  "vim_mode": true,
+  "icon_theme": "Material Icon Theme",
+  "ui_font_size": 16,
+  "buffer_font_size": 16.0,
+  "theme": "Graphene",
+}
