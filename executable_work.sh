@@ -1,6 +1,6 @@
 #!/bin/bash
 
-zededitor &
+zeditor &
 discord &
 spotify --ozone-platform=x11 --uri=%u &
 firefox-developer-edition &
