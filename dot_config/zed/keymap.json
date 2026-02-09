@@ -172,5 +172,27 @@
     "bindings": {
       "space f c": "outline::Toggle"
     }
+  },
+  {
+    "context": "(VimControl && !menu)",
+    "bindings": {
+      "g r": "editor::FindAllReferences"
+    }
+  },
+  {
+    "context": "vim_mode == insert",
+    "bindings": {
+      "ctrl-e": "editor::Cancel"
+    }
+  },
+  {
+    "bindings": {
+      "ctrl-shift-y": "pane::ActivatePreviousItem"
+    }
+  },
+  {
+    "bindings": {
+      "ctrl-shift-x": "pane::ActivateNextItem"
+    }
   }
 ]
