@@ -1,7 +1,6 @@
 shell-integration = fish
 desktop-notifications = true
 window-save-state = always
-working-directory = /home/radim/dev
 command = fish
 font-family = Source Code Pro
 font-size = 13
