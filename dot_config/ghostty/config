@@ -6,4 +6,4 @@ font-family = Adwaita Mono
 font-size = 13
 keybind = ctrl+shift+y=previous_tab
 keybind = ctrl+shift+x=next_tab
-keybind = alt+shift+left=goto_split:next
+keybind = ctrl+shift+l=goto_split:next
