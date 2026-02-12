@@ -8,15 +8,13 @@
 // command palette (cmd-shift-p / ctrl-shift-p)
 {
   "edit_predictions": {
+    "provider": "codestral",
     "disabled_globs": [".env"],
     "codestral": {
       "api_url": "https://codestral.mistral.ai/v1/fim/completions",
       "max_tokens": 150,
     },
     "mode": "eager",
-  },
-  "features": {
-    "edit_prediction_provider": "codestral",
   },
   "file_finder": {
     "modal_max_width": "small",
