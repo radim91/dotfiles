@@ -7,4 +7,3 @@ font-family = Source Code Pro
 font-size = 13
 keybind = ctrl+shift+y=previous_tab
 keybind = ctrl+shift+x=next_tab
-keybind = ctrl+s=split_right
