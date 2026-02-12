@@ -2,7 +2,7 @@ shell-integration = fish
 desktop-notifications = true
 window-save-state = always
 command = fish
-font-family = Source Code Pro
+font-family = Adwaita Mono
 font-size = 13
 keybind = ctrl+shift+y=previous_tab
 keybind = ctrl+shift+x=next_tab
