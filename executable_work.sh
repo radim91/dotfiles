@@ -2,6 +2,7 @@
 
 zeditor &
 discord &
+ghostty &
 spotify --ozone-platform=x11 --uri=%u &
 firefox-developer-edition &
 org.mozilla.Thunderbird &
