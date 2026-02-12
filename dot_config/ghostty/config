@@ -3,11 +3,8 @@ desktop-notifications = true
 window-save-state = always
 working-directory = /home/radim/dev
 command = fish
-window-height = 4000
-window-width = 4000
 font-family = Source Code Pro
 font-size = 13
-keybind = ctrl+shift+left=unbind
-keybind = ctrl+shift+right=unbind
 keybind = ctrl+shift+y=previous_tab
 keybind = ctrl+shift+x=next_tab
+keybing = ctrl+s=split_right
