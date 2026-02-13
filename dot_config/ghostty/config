@@ -1,8 +1,8 @@
 shell-integration = fish
 desktop-notifications = true
 window-save-state = always
-window-height = 200
-window-width = 400
+window-height = 100
+window-width = 200
 command = fish
 font-family = Adwaita Mono
 font-size = 13
