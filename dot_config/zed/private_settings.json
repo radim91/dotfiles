@@ -11,10 +11,10 @@
     "provider": "codestral",
     "disabled_globs": [".env"],
     "codestral": {
-      "api_url": "https://codestral.mistral.ai/v1/fim/completions",
+      "api_url": "https://codestral.mistral.ai/",
       "max_tokens": 150,
     },
-    "mode": "eager",
+    "mode": "subtle",
   },
   "file_finder": {
     "modal_max_width": "small",
@@ -75,24 +75,24 @@
   "bindings": {
     "escape": "workspace::Save",
   },
-  "tabs":  {
-    "file_icons": true
+  "tabs": {
+    "file_icons": true,
   },
   "tab_bar": {
     "show_nav_history_buttons": false,
-    "show_tab_bar_buttons": false
+    "show_tab_bar_buttons": false,
   },
   "toolbar": {
     "breadcrumbs": false,
-    "quick_actions": false
+    "quick_actions": false,
   },
   "scrollbar": {
-    "cursors": false
+    "cursors": false,
   },
   "gutter": {
     "min_line_number_digits": 3,
     "runnables": false,
     "breakpoints": false,
-    "folds": false
-  }
+    "folds": false,
+  },
 }
