@@ -2,7 +2,7 @@
 
 zeditor &
 discord &
-ghostty &
+ptyxis &
 spotify --ozone-platform=x11 --uri=%u &
 firefox-developer-edition &
 io.github.hkdb.Aerion &
