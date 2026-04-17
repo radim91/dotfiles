@@ -7,6 +7,9 @@
 // custom settings, run `zed: open default settings` from the
 // command palette (cmd-shift-p / ctrl-shift-p)
 {
+  "debugger": {
+    "dock": "left"
+  },
   "outline_panel": {
     "dock": "right"
   },
@@ -14,7 +17,7 @@
     "dock": "right"
   },
   "git_panel": {
-    "dock": "right"
+    "dock": "left"
   },
   "agent_servers": {
     "mistral-vibe": {
@@ -44,7 +47,7 @@
     "dock": "left",
   },
   "project_panel": {
-    "dock": "right",
+    "dock": "left",
     "starts_open": false,
     "file_icons": true,
   },
@@ -71,7 +74,7 @@
   "buffer_font_family": "FiraMono Nerd Font Mono",
   "agent": {
     "sidebar_side": "right",
-    "dock": "left",
+    "dock": "right",
     "default_model": {
       "provider": "mistral",
       "model": "devstral-medium-latest",
