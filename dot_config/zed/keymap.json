@@ -57,7 +57,7 @@
   {
     "context": "Workspace",
     "bindings": {
-      "ctrl-:": "workspace::ToggleRightDock"
+      "ctrl-?": "workspace::ToggleRightDock"
     }
   },
   {
@@ -193,12 +193,6 @@
   {
     "bindings": {
       "ctrl-shift-x": "pane::ActivateNextItem"
-    }
-  },
-  {
-    "context": "Workspace",
-    "bindings": {
-      "ctrl-?": "workspace::ToggleLeftDock"
     }
   },
   {
