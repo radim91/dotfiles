@@ -16,43 +16,7 @@ local plugins = {
     -- requirements --
     'nvim-lua/plenary.nvim',
     'nvim-tree/nvim-web-devicons',
-    'MunifTanjim/nui.nvim',
-    'rcarriga/nvim-notify',
-
-    -- treesitter --
-    'nvim-treesitter/nvim-treesitter', build = { ":TSUpdate" },
-    'nvim-treesitter/nvim-treesitter-textobjects',
     'HiPhish/rainbow-delimiters.nvim',
-
-    -- auto completion --
-    'windwp/nvim-autopairs', event = "InsertEnter", config = true,
-    'neovim/nvim-lspconfig',
-    'hrsh7th/nvim-cmp',
-    'saadparwaiz1/cmp_luasnip',
-    'hrsh7th/cmp-nvim-lsp',
-    'hrsh7th/cmp-nvim-lua',
-    'L3MON4D3/LuaSnip',
-    'onsails/lspkind.nvim',
-    'kylechui/nvim-surround', version = "*", event = "VeryLazy",
-    'Exafunction/codeium.vim',
-    config = function()
-        require("codeium").setup({})
-    end,
-    {
-      "olimorris/codecompanion.nvim",
-      version = "^18.0.0",
-      opts = {},
-      dependencies = {
-        "nvim-lua/plenary.nvim",
-        "nvim-treesitter/nvim-treesitter",
-      },
-    },
-    {
-      "MeanderingProgrammer/render-markdown.nvim",
-      ft = { "markdown", "codecompanion" }
-    },
-
-    -- search --
     'nvim-telescope/telescope.nvim', dependencies = { 'nvim-lua/plenary.nvim' },
     'nvim-telescope/telescope-fzf-native.nvim',
     'nvim-telescope/telescope-ui-select.nvim',
@@ -61,28 +25,10 @@ local plugins = {
     'stevearc/oil.nvim', dependencies = { 'nvim-tree/nvim-web-devicons' },
     'nvim-pack/nvim-spectre',
     'stevearc/aerial.nvim',
-    "folke/snacks.nvim",
-
-    -- git & docker --
     'lewis6991/gitsigns.nvim',
-    'kdheepak/lazygit.nvim',
-    'crnvl96/lazydocker.nvim',
-
-    -- misc --
-    'moll/vim-bbye',
-    'petertriho/nvim-scrollbar',
-    'nvimdev/dashboard-nvim', event = 'VimEnter', dependencies = { {'nvim-tree/nvim-web-devicons'}},
     'sainnhe/sonokai', priority = 1000,
     'sontungexpt/sttusline', dependecies = { 'nvim-tree/nvim-web-devicons' },
-    'folke/persistence.nvim', event = "BufReadPre",
-    'folke/noice.nvim', event = "VeryLazy", dependencies = { 'MunifTanjim/nui.nvim', 'rcarriga/nvim-notify' },
-
-    "olimorris/codecompanion.nvim",
-      dependencies = {
-        "nvim-lua/plenary.nvim",
-        "nvim-treesitter/nvim-treesitter",
-    },
-    "shahshlok/vim-coach.nvim", dependencies = { "folke/snacks.nvim"  }
+    'folke/persistence.nvim', event = "BufReadPre"
 }
 
 local opts = {}
