@@ -1,7 +1,6 @@
 require("core.options")
 require("core.plugins")
 require("core.search")
-require("core.treesitter")
 require("core.lsp")
 require("core.autocompletion")
 require("core.git")
