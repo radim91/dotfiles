@@ -1,6 +1,5 @@
 {
     "$schema": "phpactor.schema.json",
     "language_server.diagnostics_on_update": false,
-    "indexer.enabled": true,
     "indexer.exclude_patterns": ["**/vendor/**", "**/node_modules/**"]
 }
