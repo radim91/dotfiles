@@ -22,8 +22,6 @@ local plugins = {
     'nvim-telescope/telescope-ui-select.nvim',
     'JoosepAlviste/nvim-ts-context-commentstring',
     'numToStr/Comment.nvim',
-    'stevearc/oil.nvim', dependencies = { 'nvim-tree/nvim-web-devicons' },
-    'nvim-pack/nvim-spectre',
     'stevearc/aerial.nvim',
     'lewis6991/gitsigns.nvim',
     'sainnhe/sonokai', priority = 1000,
