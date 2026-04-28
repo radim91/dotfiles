@@ -5,5 +5,5 @@ discord &
 ptyxis &
 spotify --ozone-platform=x11 --uri=%u &
 firefox-developer-edition &
-io.github.hkdb.Aerion &
+org.mozilla.Thunderbird &
 org.signal.Signal &
