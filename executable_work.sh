@@ -1,7 +1,7 @@
 #!/bin/bash
 
 zeditor &
-discord &
+dev.vencord.Vesktop &
 ptyxis &
 spotify --ozone-platform=x11 --uri=%u &
 firefox-developer-edition &
