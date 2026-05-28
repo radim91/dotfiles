@@ -116,6 +116,6 @@
     "folds": false,
   },
   "buffer_font_features": {
-    "calt": false // Disable ligatures
+    "calt": false
   }
 }
