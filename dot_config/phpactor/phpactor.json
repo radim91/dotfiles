@@ -1,4 +1,4 @@
 {
     "$schema": "phpactor.schema.json",
-    "indexer.exclude_patterns": ["**/vendor/**", "**/node_modules/**"]
+    "indexer.exclude_patterns": ["**/vendor/**", "**/node_modules/**", "**/tmp/**"]
 }
