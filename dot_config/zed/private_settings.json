@@ -117,5 +117,10 @@
   },
   "buffer_font_features": {
     "calt": false
+  },
+  "languages": {
+    "PHP": {
+      "language_servers": ["intelephense", "!phpactor", "!phptools", "..."]
+    }
   }
 }
