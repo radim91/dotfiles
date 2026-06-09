@@ -4,6 +4,6 @@ zeditor &
 dev.vencord.Vesktop &
 ptyxis &
 spotify --ozone-platform=x11 --uri=%u &
-firefox-developer-edition &
+zen-browser &
 org.mozilla.thunderbird_esr &
 org.signal.Signal &
