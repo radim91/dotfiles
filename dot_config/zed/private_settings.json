@@ -20,6 +20,9 @@
     "dock": "left"
   },
   "agent_servers": {
+    "claude-acp": {
+      "type": "registry"
+    },
     "mistral-vibe": {
       "type": "registry"
     }
