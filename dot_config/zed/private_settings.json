@@ -7,6 +7,16 @@
 // custom settings, run `zed: open default settings` from the
 // command palette (cmd-shift-p / ctrl-shift-p)
 {
+  "use_system_window_tabs": false,
+  "title_bar": {
+    "button_layout": "platform_default",
+    "show_menus": false,
+    "show_user_picture": true,
+    "show_branch_status_icon": false
+  },
+  "search": {
+    "include_ignored": true
+  },
   "debugger": {
     "dock": "bottom"
   },
@@ -21,6 +31,9 @@
   },
   "agent_servers": {
     "claude-acp": {
+      "default_config_options": {
+        "model": "claude-fable-5[1m]"
+      },
       "type": "registry"
     },
     "mistral-vibe": {
@@ -99,9 +112,11 @@
     "escape": "workspace::Save",
   },
   "tabs": {
+    "git_status": true,
     "file_icons": true,
   },
   "tab_bar": {
+    "show": true,
     "show_nav_history_buttons": false,
     "show_tab_bar_buttons": false,
   },
