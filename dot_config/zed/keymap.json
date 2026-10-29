@@ -200,5 +200,29 @@
     "unbind": {
       "ctrl-b": "workspace::ToggleLeftDock"
     }
+  },
+  {
+    "context": "AcpThread",
+    "bindings": {
+      "alt-shift-q": "agent::AllowOnce"
+    }
+  },
+  {
+    "context": "AcpThread",
+    "unbind": {
+      "alt-shift-a": "agent::AllowOnce"
+    }
+  },
+  {
+    "context": "AcpThread",
+    "bindings": {
+      "alt-shift-a": "agent::AllowAlways"
+    }
+  },
+  {
+    "context": "AcpThread",
+    "unbind": {
+      "alt-shift-q": "agent::AllowAlways"
+    }
   }
 ]

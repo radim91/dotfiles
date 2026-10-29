@@ -2,9 +2,9 @@
 
 zeditor &
 vesktop &
-konsole &
-spotify --ozone-platform=x11 --uri=%u &
+ptyxis &
+com.spotify.Client --ozone-platform=x11 --uri=%u &
 zen-browser &
-org.mozilla.thunderbird_esr &
-org.signal.Signal &
+thunderbird &
+signal-desktop &
 

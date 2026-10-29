@@ -7,3 +7,6 @@ if test -f ~/.env
 end
 
 set -gx PATH $PATH ~/go/bin/
+
+set -gx EDITOR nvim
+set -gx VISUAL nvim

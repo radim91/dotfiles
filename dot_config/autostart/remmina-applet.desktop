@@ -1,9 +1,9 @@
 [Desktop Entry]
 Version=1.0
-Name=Remmina Applet
-Comment=Connect to remote desktops through the applet menu
+Name=Miniaplikace Remmina
+Comment=Připojovat se ke vzdáleným plochám prostřednictvím nabídky miniaplikace
 Icon=org.remmina.Remmina
-Exec=flatpak run org.remmina.Remmina -i
+Exec=remmina -i
 Terminal=false
 Type=Application
 Hidden=false
