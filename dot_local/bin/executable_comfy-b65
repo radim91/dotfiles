@@ -1,0 +1,30 @@
+#!/usr/bin/env bash
+# ComfyUI pinned to the Arc Pro B65 eGPU (PyTorch XPU / Level Zero).
+# Refuses to start when Level Zero does not expose the B65, so it never
+# silently falls back to the integrated GPU.
+# Usage: comfy-b65 [extra ComfyUI args...]
+set -euo pipefail
+
+DIR="$HOME/src/ComfyUI"
+PY="$DIR/.venv/bin/python"
+
+# Index of the first XPU device whose name looks like the Arc card.
+IDX=$("$PY" - 2>/dev/null <<'EOF'
+import torch
+for i in range(torch.xpu.device_count()):
+    name = torch.xpu.get_device_name(i)
+    if any(k in name for k in ("Arc", "B65", "BMG")):
+        print(i)
+        break
+EOF
+)
+
+if [ -z "$IDX" ]; then
+    echo "B65 is not visible to Level Zero / PyTorch XPU (only the iGPU is)." >&2
+    echo "Cause so far: Resizable BAR not active on the eGPU - check 'journalctl -k | grep -i BAR'." >&2
+    exit 1
+fi
+echo "B65 = level_zero:$IDX" >&2
+
+cd "$DIR"
+exec "$PY" main.py --oneapi-device-selector "level_zero:$IDX" --listen 127.0.0.1 --port 8188 "$@"

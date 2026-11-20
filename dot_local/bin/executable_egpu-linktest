@@ -1,0 +1,51 @@
+#!/usr/bin/env bash
+# Load test for the B65 eGPU link: runs a fixed inference workload and reports
+# speed, GPU power and the PCIe link error counters of the Sonnet slot port.
+# Usage: egpu-linktest [model: coder|qwen|glm]   (default: coder)
+set -uo pipefail
+
+MODEL="${1:-coder}"
+case "$MODEL" in coder) PORT=18082 ;; qwen) PORT=18081 ;; glm) PORT=18080 ;; *) echo "unknown model" >&2; exit 2 ;; esac
+
+GPU=$(for d in /sys/bus/pci/devices/*; do [ "$(cat "$d/vendor")" = 0x8086 ] && [ "$(cat "$d/device")" = 0xe222 ] && echo "$d"; done | head -1)
+[ -n "$GPU" ] || { echo "B65 not found on the PCI bus" >&2; exit 1; }
+# Slot port of the box = 3 levels above the GPU (GPU <- card switch down <- card switch up <- box port).
+PORTDEV=$(readlink -f "$GPU/../../..")
+AER="$PORTDEV/aer_dev_correctable"
+HW=$(for h in /sys/class/hwmon/hwmon*; do [ "$(cat "$h/name")" = xe ] && [ "$(readlink -f "$h/device")" = "$(readlink -f "$GPU")" ] && echo "$h"; done | head -1)
+
+cnt()   { awk -v k="$1" '$1==k{print $2}' "$AER"; }
+fatal() { awk '$1=="TOTAL_ERR_FATAL"{print $2}' "$PORTDEV/aer_dev_fatal"; }
+
+if ! curl -sf "localhost:$PORT/health" >/dev/null; then
+    pkill -x llama-server 2>/dev/null; sleep 2
+    setsid llama-b65 "$MODEL" >/tmp/egpu-linktest-server.log 2>&1 &
+    for _ in $(seq 300); do curl -sf "localhost:$PORT/health" >/dev/null && break; sleep 1; done
+fi
+curl -sf "localhost:$PORT/health" >/dev/null || { echo "server did not start (see /tmp/egpu-linktest-server.log)" >&2; exit 1; }
+
+REQ=$(python3 - <<'EOF'
+import json
+ctx = " ".join(f"Záznam {i}: bedna pod stolem hučí a karta počítá tokeny pro agenta." for i in range(150))
+print(json.dumps({"messages": [{"role": "user", "content": ctx + "\n\nNapiš v Pythonu třídu LRUCache s testy v pytest a podrobně ji okomentuj."}],
+                  "max_tokens": 500, "cache_prompt": False}))
+EOF
+)
+
+echo "cap=$(( $(cat "$HW/power1_cap") / 1000000 )) W  link=$(cat "$PORTDEV/current_link_speed") x$(cat "$PORTDEV/current_link_width")  port=$(basename "$PORTDEV")"
+d0=$(cnt BadDLLP); t0=$(cnt BadTLP); f0=$(fatal); e0=$(cat "$HW/energy2_input"); s0=$(date +%s.%N)
+TOK=0
+for i in 1 2 3 4; do
+    out=$(curl -s -m 300 "localhost:$PORT/v1/chat/completions" -H 'Content-Type: application/json' -d "$REQ" \
+          | python3 -c "import json,sys; t=json.load(sys.stdin)['timings']; print(t['predicted_n'], round(t['predicted_per_second'],1))" 2>/dev/null)
+    [ -n "$out" ] || { echo "  request $i FAILED (card crashed?)"; break; }
+    TOK=$(( TOK + ${out% *} )); echo "  request $i: ${out% *} tok @ ${out#* } tok/s"
+done
+s1=$(date +%s.%N); e1=$(cat "$HW/energy2_input" 2>/dev/null || echo "$e0")
+python3 - "$d0" "$(cnt BadDLLP)" "$t0" "$(cnt BadTLP)" "$f0" "$(fatal)" "$e0" "$e1" "$s0" "$s1" "$TOK" <<'EOF'
+import sys
+d0,d1,t0,t1,f0,f1,e0,e1,s0,s1,tok = map(float, sys.argv[1:])
+dt = s1 - s0
+print(f"avg GPU power {(e1-e0)/1e6/dt:.0f} W over {dt:.0f} s")
+print(f"BadDLLP +{d1-d0:.0f}  BadTLP +{t1-t0:.0f}  fatal +{f1-f0:.0f}  ->  {(d1-d0)/max(tok,1)*1000:.0f} errors per 1000 generated tokens")
+EOF
