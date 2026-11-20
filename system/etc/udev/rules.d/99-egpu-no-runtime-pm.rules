@@ -1,0 +1,11 @@
+# Keep the Arc Pro B65 eGPU (Sonnet 750ex) awake: no runtime power management.
+# Twice on 2026-11-19 the card stopped responding right when it was woken up
+# for a new job after sitting idle (xe: "INTR_IDENTITY_REG0 not valid",
+# GuC timeouts, device declared wedged). Suspected cause: the runtime
+# suspend/resume path over Thunderbolt. Costs some idle power in the box.
+#
+# Matched by PCI ID, because bus numbers change:
+#   8086:e2ff / e2f0 / e2f1  card's PCIe switch ports
+#   8086:e222                Arc Pro B65 GPU
+#   8086:e2f7                card's HDMI/DP audio
+ACTION=="add", SUBSYSTEM=="pci", ATTR{vendor}=="0x8086", ATTR{device}=="0xe2ff|0xe2f0|0xe2f1|0xe222|0xe2f7", ATTR{power/control}="on"
