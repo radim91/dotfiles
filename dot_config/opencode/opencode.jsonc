@@ -1,0 +1,56 @@
+{
+  "$schema": "https://opencode.ai/config.json",
+  // Local llama-server instances on the Arc Pro B65.
+  // Only one model fits in VRAM at a time; each has its own port so that
+  // picking a model whose server is not running fails instead of silently
+  // answering with the other model. Ports are kept out of the web-dev range.
+  // The context limits must match the -c value in ~/.local/bin/llama-b65.
+  "providers": {
+    // Start with: llama-b65        (qwen is the launcher default)
+    "llamacpp-qwen": {
+      "name": "llama.cpp Qwen (B65)",
+      "package": "@opencode/ai/providers/openai-compatible",
+      "settings": {
+        "baseURL": "http://127.0.0.1:18081/v1",
+      },
+      "models": {
+        "qwen3.8-27b": {
+          "name": "Qwen3.8-27B (local)",
+          "limit": { "context": 131072, "output": 8192 },
+          "capabilities": { "tools": true },
+        },
+      },
+    },
+    // Start with: llama-b65 coder
+    "llamacpp-coder": {
+      "name": "llama.cpp Qwen3.6 A3B (B65)",
+      "package": "@opencode/ai/providers/openai-compatible",
+      "settings": {
+        "baseURL": "http://127.0.0.1:18082/v1",
+      },
+      "models": {
+        "qwen3.6-35b-a3b": {
+          "name": "Qwen3.6-35B-A3B (local)",
+          "limit": { "context": 131072, "output": 8192 },
+          "capabilities": { "tools": true },
+        },
+      },
+    },
+    // Start with: llama-b65 muse
+    "llamacpp-muse": {
+      "name": "llama.cpp Muse Glimmer (B65)",
+      "package": "@opencode/ai/providers/openai-compatible",
+      "settings": {
+        "baseURL": "http://127.0.0.1:18083/v1",
+      },
+      "models": {
+        "muse-glimmer-30b": {
+          "name": "Muse-Glimmer-30B (local)",
+          "limit": { "context": 131072, "output": 8192 },
+          "capabilities": { "tools": true },
+        },
+      },
+    },
+  },
+  "model": "llamacpp-qwen/qwen3.8-27b",
+}
