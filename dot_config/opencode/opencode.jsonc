@@ -67,21 +67,6 @@
         },
       },
     },
-  
-        "llamacpp-ornith-1-5-9b-q6-k": {
-      "name": "llama.cpp Ornith-1.5-9B-Q6_K (B65)",
-      "package": "@opencode/ai/providers/openai-compatible",
-      "settings": {
-        "baseURL": "http://127.0.0.1:18084/v1",
-      },
-      "models": {
-        "ornith-1-5-9b-q6-k": {
-          "name": "Ornith-1.5-9B-Q6_K (local)",
-          "limit": { "context": 131072, "output": 8192 },
-          "capabilities": { "tools": true },
-        },
-      },
-    },
 },
   "model": "llamacpp-qwen-oc/qwen3.8-27b-opencode",
 }

@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 # llama-server pinned to the Arc Pro B65 eGPU.
-# Usage: llama-b65 [qwen|qwen-oc|coder|muse|ornith|medpsy|gemma|path/to/model.gguf] [extra llama-server args...]
+# Usage: llama-b65 [qwen|qwen-oc|coder|muse|medpsy|gemma|path/to/model.gguf] [extra llama-server args...]
 #
 # Backend and port are chosen per model (qwen measured 2026-11-19 on the B65).
 # Ports are kept out of the usual web-dev range (3000/5173/8000/8080...):
@@ -8,7 +8,6 @@
 #   qwen            -> SYCL build, port 18081  (base model with thinking; SYCL ~35 % faster than Vulkan)
 #   coder           -> SYCL build, port 18082  (Qwen3.6-35B-A3B, MoE - the fast one)
 #   muse            -> SYCL build, port 18083
-#   ornith          -> SYCL build, port 18084  (Ornith-1.5-9B, small fast chat/agent model)
 #   medpsy          -> SYCL build, port 18085  (MedPsy-4B, medical Q&A, English only)
 #   gemma           -> SYCL build, port 18086  (Gemma 4 12B, Czech transcript clean-up, thinking off)
 # Any other .gguf path runs on Vulkan, port 18080. Override with BACKEND=sycl|vulkan.
@@ -42,10 +41,6 @@ case "${1:-qwen-oc}" in
     muse)  MODEL="$MODELS/Muse-Glimmer-30B-KQuant-17GB-Q4_K_M.gguf"; DEF_BACKEND=sycl; PORT=18083
            CTX=131072  # native max; ~19.5 GB VRAM at 128K in published B65 SYCL runs
            SAMPLING=() ;;  # server defaults
-    ornith) MODEL="$MODELS/Ornith-1.5-9B-Q6_K.gguf"; DEF_BACKEND=sycl; PORT=18084
-           CTX=131072  # Qwen3.5 hybrid (8 of 32 layers keep KV): ~32 KB/token, ~4 GiB at 128K (computed, not yet run on the B65)
-           # Model card, general tasks. For precise coding: --temp 0.6 --presence-penalty 0
-           SAMPLING=(--temp 1.0 --top-p 0.95 --top-k 20 --presence-penalty 1.5) ;;
     medpsy) MODEL="$MODELS/medpsy-4b-q8_0.gguf"; DEF_BACKEND=sycl; PORT=18085
            CTX=32768   # plain transformer (Qwen3-4B): KV ~150 KB/token, ~4.6 GiB at 32K (computed, not yet run on the B65)
            SAMPLING=(--temp 0.6 --top-p 0.95 --top-k 20) ;;  # as evaluated by the authors
