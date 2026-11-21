@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 # llama-server pinned to the Arc Pro B65 eGPU.
-# Usage: llama-b65 [qwen|qwen-oc|coder|muse|ornith|medpsy|path/to/model.gguf] [extra llama-server args...]
+# Usage: llama-b65 [qwen|qwen-oc|coder|muse|ornith|medpsy|gemma|path/to/model.gguf] [extra llama-server args...]
 #
 # Backend and port are chosen per model (qwen measured 2026-11-19 on the B65).
 # Ports are kept out of the usual web-dev range (3000/5173/8000/8080...):
@@ -10,6 +10,7 @@
 #   muse            -> SYCL build, port 18083
 #   ornith          -> SYCL build, port 18084  (Ornith-1.5-9B, small fast chat/agent model)
 #   medpsy          -> SYCL build, port 18085  (MedPsy-4B, medical Q&A, English only)
+#   gemma           -> SYCL build, port 18086  (Gemma 4 12B, Czech transcript clean-up, thinking off)
 # Any other .gguf path runs on Vulkan, port 18080. Override with BACKEND=sycl|vulkan.
 set -euo pipefail
 
@@ -48,6 +49,13 @@ case "${1:-qwen-oc}" in
     medpsy) MODEL="$MODELS/medpsy-4b-q8_0.gguf"; DEF_BACKEND=sycl; PORT=18085
            CTX=32768   # plain transformer (Qwen3-4B): KV ~150 KB/token, ~4.6 GiB at 32K (computed, not yet run on the B65)
            SAMPLING=(--temp 0.6 --top-p 0.95 --top-k 20) ;;  # as evaluated by the authors
+    gemma) MODEL="$MODELS/gemma-4-12b-it-Q6_K.gguf"; DEF_BACKEND=sycl; PORT=18086
+           CTX=32768
+           # Rewriting Czech speech transcripts: low temperature, thinking off.
+           # Measured 2026-11-21 on the B65: 34 tok/s without the MTP head, 81 tok/s with it.
+           SAMPLING=(--temp 0.2 --chat-template-kwargs '{"enable_thinking": false}')
+           MTP="$MODELS/MTP/mtp-gemma-4-12b-it.gguf"
+           if [ -f "$MTP" ] && [ -z "${NO_MTP:-}" ]; then SAMPLING+=(--spec-type draft-mtp --spec-draft-model "$MTP"); fi ;;
     *)     MODEL="$1"; DEF_BACKEND=vulkan; PORT=18080; CTX=65536; SAMPLING=() ;;
 esac
 [ $# -gt 0 ] && shift
