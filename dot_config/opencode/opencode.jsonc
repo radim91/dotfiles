@@ -21,6 +21,37 @@
         },
       },
     },
+    // Start with: llama-b65 qwen-oc
+    // Same Qwen3.8-27B with the opencode LoRA adapter (harness-hub), thinking off.
+    "llamacpp-qwen-oc": {
+      "name": "llama.cpp Qwen + opencode adapter (B65)",
+      "package": "@opencode/ai/providers/openai-compatible",
+      "settings": {
+        "baseURL": "http://127.0.0.1:18087/v1",
+      },
+      "models": {
+        "qwen3.8-27b-opencode": {
+          "name": "Qwen3.8-27B opencode-adapted (local)",
+          "limit": { "context": 131072, "output": 8192 },
+          "capabilities": { "tools": true },
+        },
+      },
+    },
+    // Start with: llama-b65 coder
+    "llamacpp-coder": {
+      "name": "llama.cpp Qwen3.6 A3B (B65)",
+      "package": "@opencode/ai/providers/openai-compatible",
+      "settings": {
+        "baseURL": "http://127.0.0.1:18082/v1",
+      },
+      "models": {
+        "qwen3.6-35b-a3b": {
+          "name": "Qwen3.6-35B-A3B (local)",
+          "limit": { "context": 131072, "output": 8192 },
+          "capabilities": { "tools": true },
+        },
+      },
+    },
     // Start with: llama-b65 muse
     "llamacpp-muse": {
       "name": "llama.cpp Muse Glimmer (B65)",
@@ -32,23 +63,6 @@
         "muse-glimmer-30b": {
           "name": "Muse-Glimmer-30B (local)",
           "limit": { "context": 131072, "output": 8192 },
-          "capabilities": { "tools": true },
-        },
-      },
-    },
-    // Start with: llama-b65 strata   (Strata engine, not llama-server)
-    // Model id and limits are the ones `strata connect opencode` reports;
-    // limit.input leaves room so that opencode compacts before the window is full.
-    "strata": {
-      "name": "Strata QFN Coder (B65)",
-      "package": "@opencode/ai/providers/openai-compatible",
-      "settings": {
-        "baseURL": "http://127.0.0.1:18086/v1",
-      },
-      "models": {
-        "qwen3.8-flash-next-coder-iq1_m": {
-          "name": "Qwen3.8-Flash-Next Coder IQ1_M (local)",
-          "limit": { "context": 131072, "input": 126976, "output": 16384 },
           "capabilities": { "tools": true },
         },
       },

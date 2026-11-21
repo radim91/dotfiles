@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 # llama-server pinned to the Arc Pro B65 eGPU.
-# Usage: llama-b65 [qwen|coder|muse|ornith|medpsy|strata|path/to/model.gguf] [extra llama-server args...]
+# Usage: llama-b65 [qwen|qwen-oc|coder|muse|ornith|medpsy|path/to/model.gguf] [extra llama-server args...]
 #
 # Backend and port are chosen per model (qwen measured 2026-11-19 on the B65).
 # Ports are kept out of the usual web-dev range (3000/5173/8000/8080...):
@@ -9,28 +9,12 @@
 #   muse            -> SYCL build, port 18083
 #   ornith          -> SYCL build, port 18084  (Ornith-1.5-9B, small fast chat/agent model)
 #   medpsy          -> SYCL build, port 18085  (MedPsy-4B, medical Q&A, English only)
-#   strata          -> Strata engine, port 18086  (Qwen3.8-Flash-Next Coder IQ1_M; not llama-server,
-#                      extra args go to `strata launch`, e.g. --plan or --context 64k)
+#   qwen-oc         -> SYCL build, port 18087  (qwen + opencode LoRA adapter, thinking off)
 # Any other .gguf path runs on Vulkan, port 18080. Override with BACKEND=sycl|vulkan.
 set -euo pipefail
 
 SRC="$HOME/src/llama.cpp"
 MODELS="$HOME/models"
-
-if [ "${1:-}" = strata ]; then
-    shift
-    # Strata brings its own engine and picks the Intel card itself; without
-    # --backend intel it would take the internal NVIDIA card.
-    # The whole model sits in VRAM: stop any other server on the B65 first
-    # (over-allocating VRAM on xe can livelock the machine).
-    QFN="$MODELS/QFN-Coder-IQ1_M/IQ1_M"
-    # DFlash2 drafter: ~40 -> 54-59 tok/s on code (measured 2026-11-21). The default
-    # ("MTP") loads no draft layer on Intel. DFlash2 serves one request at a time,
-    # which also avoids the 4-slot batch stall seen with the default.
-    # Override by passing another --drafting (the last one wins).
-    echo "Strata (intel, DFlash2), port 18086, model = $QFN" >&2
-    exec strata launch --model-path "$QFN" --backend intel --port 18086 --vision off --drafting dflash2 "$@"
-fi
 
 case "${1:-qwen}" in
     qwen)  MODEL="$MODELS/Qwen3.8-27B-UD-Q4_K_M.gguf";    DEF_BACKEND=sycl;   PORT=18081
@@ -40,6 +24,20 @@ case "${1:-qwen}" in
            # Disable with NO_MTP=1.
            MTP="$MODELS/MTP/mtp-Qwen3.8-27B-Q4_0.gguf"
            if [ -f "$MTP" ] && [ -z "${NO_MTP:-}" ]; then SAMPLING+=(--spec-type draft-mtp --spec-draft-model "$MTP"); fi ;;
+    qwen-oc) MODEL="$MODELS/Qwen3.8-27B-UD-Q4_K_M.gguf";  DEF_BACKEND=sycl;   PORT=18087
+           CTX=131072
+           # harness-hub/Qwen3.8-27B-opencode-adapted: LoRA trained with RL for the opencode harness.
+           # Thinking stays off (as trained; on adds ~6x tokens for no significant gain) and the
+           # sampling is the training one. Trained on BF16 weights; on Q4_K_M it may drift.
+           SAMPLING=(--temp 0.8 --top-p 1.0 --top-k 0
+                     --lora "$MODELS/lora-qwen38-opencode/Qwen3.8-27B-opencode-lora-F16.gguf"
+                     --chat-template-kwargs '{"enable_thinking": false}')
+           MTP="$MODELS/MTP/mtp-Qwen3.8-27B-Q4_0.gguf"
+           if [ -f "$MTP" ] && [ -z "${NO_MTP:-}" ]; then SAMPLING+=(--spec-type draft-mtp --spec-draft-model "$MTP"); fi ;;
+    coder) MODEL="$MODELS/Qwen3.6-35B-A3B-UD-Q4_K_M.gguf"; DEF_BACKEND=sycl; PORT=18082
+           CTX=131072  # hybrid SSM/attention like qwen: KV ~2.5 GiB at 128K (computed, not yet run); native max 262144
+           # Qwen's recommended sampling for precise coding (thinking mode).
+           SAMPLING=(--temp 0.6 --top-p 0.95 --top-k 20) ;;
     muse)  MODEL="$MODELS/Muse-Glimmer-30B-KQuant-17GB-Q4_K_M.gguf"; DEF_BACKEND=sycl; PORT=18083
            CTX=131072  # native max; ~19.5 GB VRAM at 128K in published B65 SYCL runs
            SAMPLING=() ;;  # server defaults
