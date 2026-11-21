@@ -40,10 +40,6 @@ case "${1:-qwen}" in
            # Disable with NO_MTP=1.
            MTP="$MODELS/MTP/mtp-Qwen3.8-27B-Q4_0.gguf"
            if [ -f "$MTP" ] && [ -z "${NO_MTP:-}" ]; then SAMPLING+=(--spec-type draft-mtp --spec-draft-model "$MTP"); fi ;;
-    coder) MODEL="$MODELS/Qwen3.6-35B-A3B-UD-Q4_K_M.gguf"; DEF_BACKEND=sycl; PORT=18082
-           CTX=131072  # hybrid SSM/attention like qwen: KV ~2.5 GiB at 128K (computed, not yet run); native max 262144
-           # Qwen's recommended sampling for precise coding (thinking mode).
-           SAMPLING=(--temp 0.6 --top-p 0.95 --top-k 20) ;;
     muse)  MODEL="$MODELS/Muse-Glimmer-30B-KQuant-17GB-Q4_K_M.gguf"; DEF_BACKEND=sycl; PORT=18083
            CTX=131072  # native max; ~19.5 GB VRAM at 128K in published B65 SYCL runs
            SAMPLING=() ;;  # server defaults
