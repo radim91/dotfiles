@@ -52,21 +52,6 @@
         },
       },
     },
-    // Start with: llama-b65 muse
-    "llamacpp-muse": {
-      "name": "llama.cpp Muse Glimmer (B65)",
-      "package": "@opencode/ai/providers/openai-compatible",
-      "settings": {
-        "baseURL": "http://127.0.0.1:18083/v1",
-      },
-      "models": {
-        "muse-glimmer-30b": {
-          "name": "Muse-Glimmer-30B (local)",
-          "limit": { "context": 131072, "output": 8192 },
-          "capabilities": { "tools": true },
-        },
-      },
-    },
 },
   "model": "llamacpp-qwen-oc/qwen3.8-27b-opencode",
 }
