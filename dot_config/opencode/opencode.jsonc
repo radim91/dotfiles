@@ -6,7 +6,7 @@
   // answering with the other model. Ports are kept out of the web-dev range.
   // The context limits must match the -c value in ~/.local/bin/llama-b65.
   "providers": {
-    // Start with: llama-b65        (qwen is the launcher default)
+    // Start with: llama-b65 qwen   (base model with thinking, for general questions)
     "llamacpp-qwen": {
       "name": "llama.cpp Qwen (B65)",
       "package": "@opencode/ai/providers/openai-compatible",
@@ -21,7 +21,7 @@
         },
       },
     },
-    // Start with: llama-b65 qwen-oc
+    // Start with: llama-b65        (qwen-oc is the launcher default)
     // Same Qwen3.8-27B with the opencode LoRA adapter (harness-hub), thinking off.
     "llamacpp-qwen-oc": {
       "name": "llama.cpp Qwen + opencode adapter (B65)",
@@ -83,5 +83,5 @@
       },
     },
 },
-  "model": "llamacpp-ornith-1-5-9b-q6-k/ornith-1-5-9b-q6-k",
+  "model": "llamacpp-qwen-oc/qwen3.8-27b-opencode",
 }

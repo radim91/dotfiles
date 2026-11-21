@@ -4,19 +4,19 @@
 #
 # Backend and port are chosen per model (qwen measured 2026-11-19 on the B65).
 # Ports are kept out of the usual web-dev range (3000/5173/8000/8080...):
-#   qwen  (default) -> SYCL build, port 18081  (SYCL ~35 % faster than Vulkan)
+#   qwen-oc (default) -> SYCL build, port 18087  (qwen + opencode LoRA adapter, thinking off)
+#   qwen            -> SYCL build, port 18081  (base model with thinking; SYCL ~35 % faster than Vulkan)
 #   coder           -> SYCL build, port 18082  (Qwen3.6-35B-A3B, MoE - the fast one)
 #   muse            -> SYCL build, port 18083
 #   ornith          -> SYCL build, port 18084  (Ornith-1.5-9B, small fast chat/agent model)
 #   medpsy          -> SYCL build, port 18085  (MedPsy-4B, medical Q&A, English only)
-#   qwen-oc         -> SYCL build, port 18087  (qwen + opencode LoRA adapter, thinking off)
 # Any other .gguf path runs on Vulkan, port 18080. Override with BACKEND=sycl|vulkan.
 set -euo pipefail
 
 SRC="$HOME/src/llama.cpp"
 MODELS="$HOME/models"
 
-case "${1:-qwen}" in
+case "${1:-qwen-oc}" in
     qwen)  MODEL="$MODELS/Qwen3.8-27B-UD-Q4_K_M.gguf";    DEF_BACKEND=sycl;   PORT=18081
            CTX=131072  # hybrid SSM/attention model, KV cache tiny; native max is 262144
            SAMPLING=(--temp 1.0 --top-p 0.95 --top-k 20)
