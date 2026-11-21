@@ -37,21 +37,6 @@
         },
       },
     },
-    // Start with: llama-b65 coder
-    "llamacpp-coder": {
-      "name": "llama.cpp Qwen3.6 A3B (B65)",
-      "package": "@opencode/ai/providers/openai-compatible",
-      "settings": {
-        "baseURL": "http://127.0.0.1:18082/v1",
-      },
-      "models": {
-        "qwen3.6-35b-a3b": {
-          "name": "Qwen3.6-35B-A3B (local)",
-          "limit": { "context": 131072, "output": 8192 },
-          "capabilities": { "tools": true },
-        },
-      },
-    },
 },
   "model": "llamacpp-qwen-oc/qwen3.8-27b-opencode",
 }
