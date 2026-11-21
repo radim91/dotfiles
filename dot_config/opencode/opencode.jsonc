@@ -51,6 +51,38 @@
         },
       },
     },
-  },
-  "model": "llamacpp-qwen/qwen3.8-27b",
+    // Start with: llama-b65 strata   (Strata engine, not llama-server)
+    // Model id and limits are the ones `strata connect opencode` reports;
+    // limit.input leaves room so that opencode compacts before the window is full.
+    "strata": {
+      "name": "Strata QFN Coder (B65)",
+      "package": "@opencode/ai/providers/openai-compatible",
+      "settings": {
+        "baseURL": "http://127.0.0.1:18086/v1",
+      },
+      "models": {
+        "qwen3.8-flash-next-coder-iq1_m": {
+          "name": "Qwen3.8-Flash-Next Coder IQ1_M (local)",
+          "limit": { "context": 131072, "input": 126976, "output": 16384 },
+          "capabilities": { "tools": true },
+        },
+      },
+    },
+  
+        "llamacpp-ornith-1-5-9b-q6-k": {
+      "name": "llama.cpp Ornith-1.5-9B-Q6_K (B65)",
+      "package": "@opencode/ai/providers/openai-compatible",
+      "settings": {
+        "baseURL": "http://127.0.0.1:18084/v1",
+      },
+      "models": {
+        "ornith-1-5-9b-q6-k": {
+          "name": "Ornith-1.5-9B-Q6_K (local)",
+          "limit": { "context": 131072, "output": 8192 },
+          "capabilities": { "tools": true },
+        },
+      },
+    },
+},
+  "model": "llamacpp-ornith-1-5-9b-q6-k/ornith-1-5-9b-q6-k",
 }
