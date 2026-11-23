@@ -1,0 +1,71 @@
+#!/bin/sh
+# game-gpu — launch a game on the best GPU, automatically:
+#   docked (Arc Pro B65 eGPU on TB present)  -> B65
+#   undocked                                 -> internal NVIDIA RTX PRO 1000
+#
+# Steam launch option, set ONCE per game and never change again:
+#   /home/radim/.local/bin/game-gpu %command%
+#
+# Manual override (first argument or env var):
+#   game-gpu b65 <game>       force the eGPU
+#   game-gpu nvidia <game>    force the internal NVIDIA
+#   GAME_GPU=nvidia game-gpu <game>
+
+[ "$1" = "b65" -o "$1" = "nvidia" ] && { target=$1; shift; }
+target=${GAME_GPU:-$target}
+[ $# -eq 0 ] && set steam
+cmd=$1; shift
+
+# GPU PCI ids (device-specific, stable across docks/reboots)
+B65_ID="0x8086:0xe222"   # Arc Pro B65 (eGPU, behind TB bridge)
+NV_ID="0x10de:0x2db8"    # RTX PRO 1000 Blackwell (internal)
+
+b65_node="" nv_node="" ptl_node=""
+for r in /dev/dri/renderD*; do
+  p=$(readlink -f "/sys/class/drm/$(basename "$r")" 2>/dev/null) || continue
+  pci=$(basename "$(dirname "$(dirname "$p")")")
+  id="$(cat "/sys/bus/pci/devices/$pci/vendor" 2>/dev/null):$(cat "/sys/bus/pci/devices/$pci/device" 2>/dev/null)"
+  case "$id" in
+    "$B65_ID") b65_node=$r ;;
+    "$NV_ID")  nv_node=$r ;;
+    *)         ptl_node=$r ;;   # iGPU / anything else
+  esac
+done
+
+# pick: auto = B65 when docked, else NVIDIA
+if [ -z "$target" ]; then
+  if [ -n "$b65_node" ]; then target=b65; else target=nvidia; fi
+fi
+if [ "$target" = b65 ] && [ -z "$b65_node" ]; then
+  echo "game-gpu: eGPU B65 not found (undocked?) — falling back to nvidia" >&2
+  target=nvidia
+fi
+
+# build mount masks: hide every render node except the chosen one
+target_node=""
+case "$target" in
+  b65)    target_node=$b65_node ;;
+  nvidia) target_node=$nv_node ;;
+esac
+mounts=""
+for n in "$ptl_node" "$nv_node" "$b65_node"; do
+  [ -z "$n" ] && continue
+  [ "$n" = "$target_node" ] && continue
+  mounts="$mounts [ -n '$n' ] && mount --bind /dev/null $n;"
+done
+
+case "$target" in
+  b65)
+    exec env \
+      VK_ICD_FILENAMES=/usr/share/vulkan/icd.d/intel_icd.json \
+      MESA_VK_DEVICE_SELECT=dgpu \
+      unshare -rm sh -c "$mounts exec \"\$0\" \"\$@\"" "$cmd" "$@"
+    ;;
+  *)
+    exec env \
+      __NV_PRIME_RENDER_OFFLOAD=1 \
+      __GLX_VENDOR_LIBRARY_NAME=nvidia \
+      __EGL_VENDOR_LIBRARY_FILENAMES=/usr/share/glvnd/egl_vendor.d/10_nvidia.json \
+      unshare -rm sh -c "$mounts exec \"\$0\" \"\$@\"" "$cmd" "$@"
+    ;;
+esac
