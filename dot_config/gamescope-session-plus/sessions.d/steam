@@ -1,0 +1,17 @@
+# Lokální override pro GDM relaci "Steam Big Picture" (gamescope-session-plus steam).
+# Načítá se PO /usr/share/gamescope-session-plus/sessions.d/steam, s `set -a`.
+# Cíl: gamescope i Steam/hry jen na eGPU Arc Pro B65, obraz z jejího DP výstupu.
+
+# gamescope: vykreslování + KMS scanout na B65 (→ --prefer-vk-device)
+VULKAN_ADAPTER=8086:e222
+
+# Výstup: nechán default "*,eDP-1" — gamescope vidí jen konektory zvolené GPU (B65),
+# takže vezme její připojený DP. (Holé '*' NEPOUŽÍVAT: skript ho nekvotuje → glob.)
+
+# U3425WE přes DP umí 48–120 Hz (EDID range limits), gamescope ale bere preferovaný
+# režim 60 Hz. Tímhle Steam v Nastavení → Displej ukáže posuvník obnovovací frekvence.
+STEAM_DISPLAY_REFRESH_LIMITS=48,120
+
+# Steam se spouští přes `switcherooctl launch`, který bere PRVNÍ diskrétní GPU = NVIDIA
+# a přidá __NV_PRIME_RENDER_OFFLOAD apod. Wrapper tyhle proměnné zahodí a vynutí B65.
+CLIENTCMD="$HOME/.local/bin/steam-gamescope-b65 -gamepadui -steamos3 -steampal -steamdeck"
