@@ -1,42 +1,50 @@
 #!/bin/sh
-# game-gpu — launch a game on the best GPU, automatically:
-#   docked (Arc Pro B65 eGPU on TB present)  -> B65
-#   undocked                                 -> internal NVIDIA RTX PRO 1000
+# game-gpu — run a command (default: steam) on the right GPU, automatically:
+#   docked (Arc Pro B65 eGPU, 8086:e222, present on the bus) -> B65
+#   undocked                                                 -> internal NVIDIA RTX PRO 1000
+# The desktop itself stays on the iGPU either way.
 #
-# Steam launch option, set once per game:
+# Usage:
+#   game-gpu                          Steam on the auto-picked GPU
+#   game-gpu <cmd> [args...]          any program (vkcube, a native game, ...)
+#   game-gpu b65 <cmd> [args...]      force the eGPU
+#   game-gpu nvidia <cmd> [args...]   force the internal NVIDIA
+#   GAME_GPU=nvidia game-gpu <cmd>    same, via env
+#
+# Steam launch option (per game), when Steam itself runs elsewhere:
 #   /home/radim/.local/bin/game-gpu %command%
+# gamescope session ("Steam Big Picture" in GDM) uses `game-gpu b65 steam ...`
+# as its CLIENTCMD, see ~/.config/gamescope-session-plus/sessions.d/steam.
 #
-# Manual override (first argument or env var):
-#   game-gpu b65 <game>       force the eGPU
-#   game-gpu nvidia <game>    force the internal NVIDIA
-#   GAME_GPU=nvidia game-gpu <game>
+# Note: if Steam is already running, quit it first — a new `steam` call only
+# forwards to the running instance, which keeps its old environment.
 #
-# How it works (deliberately no namespaces — Steam refuses to run as uid 0,
-# which unshare -r would make you):
-#   b65:    VK_ICD_FILENAMES hides the NVIDIA Vulkan driver, and
-#           MESA_VK_DEVICE_SELECT=dgpu makes the B65 the first — and only
-#           discrete — Vulkan device.
-#   nvidia: standard NVIDIA PRIME offload env; the implicit
-#           VK_LAYER_NV_optimus layer makes NVIDIA the first device.
-# The iGPU may still be *visible* to Vulkan (second in the list); every
-# common game-selection heuristic (first device / discrete / most VRAM)
-# picks the intended GPU anyway.
+# How it works (environment only, no namespaces — `unshare -r` makes you uid 0
+# and Steam refuses to run as root; also no hardcoded renderD numbers, they
+# shift after a TB hot-plug):
+#   b65:    VK_LOADER_DRIVERS_SELECT  Vulkan loads only the Intel ANV driver (no NVIDIA)
+#           MESA_VK_DEVICE_SELECT     ...and exposes only the B65 ("!" = only, hides the iGPU)
+#           DRI_PRIME                 OpenGL (Mesa) renders on the B65
+#           -u __NV_* / __GLX_*       drops PRIME-offload vars that callers such as
+#                                     `switcherooctl launch` (gamescope-session) set for NVIDIA
+#   nvidia: standard NVIDIA PRIME offload env; the implicit VK_LAYER_NV_optimus
+#           layer makes NVIDIA the first Vulkan device.
 
-[ "$1" = "b65" -o "$1" = "nvidia" ] && { target=$1; shift; }
+B65_ID=8086:e222
+
+case "$1" in b65|nvidia) target=$1; shift ;; esac
 target=${GAME_GPU:-$target}
 [ $# -eq 0 ] && set steam
-cmd=$1; shift
 
-# eGPU PCI id (present on the bus = docked)
+# eGPU present on the bus = docked
 b65=0
 for d in /sys/bus/pci/devices/*; do
-  if [ "$(cat "$d/vendor" 2>/dev/null)" = "0x8086" ] && \
-     [ "$(cat "$d/device" 2>/dev/null)" = "0xe222" ]; then
+  if [ "$(cat "$d/vendor" 2>/dev/null)" = "0x${B65_ID%:*}" ] && \
+     [ "$(cat "$d/device" 2>/dev/null)" = "0x${B65_ID#*:}" ]; then
     b65=1
   fi
 done
 
-# pick: auto = B65 when docked, else NVIDIA
 if [ -z "$target" ]; then
   if [ "$b65" = 1 ]; then target=b65; else target=nvidia; fi
 fi
@@ -48,15 +56,20 @@ fi
 case "$target" in
   b65)
     exec env \
-      VK_ICD_FILENAMES=/usr/share/vulkan/icd.d/intel_icd.json \
-      MESA_VK_DEVICE_SELECT=dgpu \
-      "$cmd" "$@"
+      -u __NV_PRIME_RENDER_OFFLOAD \
+      -u __GLX_VENDOR_LIBRARY_NAME \
+      -u __VK_LAYER_NV_optimus \
+      -u __EGL_VENDOR_LIBRARY_FILENAMES \
+      VK_LOADER_DRIVERS_SELECT='*intel_icd*' \
+      MESA_VK_DEVICE_SELECT="$B65_ID!" \
+      DRI_PRIME="$B65_ID" \
+      "$@"
     ;;
   *)
     exec env \
       __NV_PRIME_RENDER_OFFLOAD=1 \
       __GLX_VENDOR_LIBRARY_NAME=nvidia \
       __EGL_VENDOR_LIBRARY_FILENAMES=/usr/share/glvnd/egl_vendor.d/10_nvidia.json \
-      "$cmd" "$@"
+      "$@"
     ;;
 esac

@@ -13,5 +13,5 @@ VULKAN_ADAPTER=8086:e222
 STEAM_DISPLAY_REFRESH_LIMITS=48,120
 
 # Steam se spouští přes `switcherooctl launch`, který bere PRVNÍ diskrétní GPU = NVIDIA
-# a přidá __NV_PRIME_RENDER_OFFLOAD apod. Wrapper tyhle proměnné zahodí a vynutí B65.
-CLIENTCMD="$HOME/.local/bin/steam-gamescope-b65 -gamepadui -steamos3 -steampal -steamdeck"
+# a přidá __NV_PRIME_RENDER_OFFLOAD apod. `game-gpu b65` tyhle proměnné zahodí a vynutí B65.
+CLIENTCMD="$HOME/.local/bin/game-gpu b65 steam -gamepadui -steamos3 -steampal -steamdeck"

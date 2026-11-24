@@ -19,7 +19,13 @@
           "limit": { "context": 131072, "output": 8192 },
           "capabilities": { "tools": true },
         },
-      },
+      
+                "qwen3-8-27b": {
+          "name": "Qwen3.8-27B (local)",
+          "limit": { "context": 131072, "output": 8192 },
+          "capabilities": { "tools": true },
+        },
+},
     },
     // Start with: llama-b65        (qwen-oc is the launcher default)
     // Same Qwen3.8-27B with the opencode LoRA adapter (harness-hub), thinking off.
@@ -35,8 +41,51 @@
           "limit": { "context": 131072, "output": 8192 },
           "capabilities": { "tools": true },
         },
+      
+                "qwen3-8-27b-qwen-oc": {
+          "name": "Qwen3.8-27B-UD-Q4_K_M (qwen-oc) (local)",
+          "limit": { "context": 131072, "output": 8192 },
+          "capabilities": { "tools": true },
+        },
+},
+    },
+
+        "llamacpp-gemma-4-12b-it-q6-k": {
+      "name": "llama.cpp gemma-4-12b-it-Q6_K (B65)",
+      "package": "@opencode/ai/providers/openai-compatible",
+      "settings": {
+        "baseURL": "http://127.0.0.1:18086/v1",
+      },
+      "models": {
+        "gemma-4-12b-it-q6-k": {
+          "name": "gemma-4-12b-it-Q6_K (local)",
+          "limit": { "context": 32768, "output": 8192 },
+          "capabilities": { "tools": true },
+        },
       },
     },
 },
-  "model": "llamacpp-qwen-oc/qwen3.8-27b-opencode",
+  "model": "llamacpp-qwen-oc/qwen3-8-27b-qwen-oc",
+  "mcp": {
+    "servers": {
+      "gimp": {
+        "type": "local",
+        "command": [
+          "uvx",
+          "gimp-mcp-plugin@latest"
+        ]
+      },
+      "chrome-devtools": {
+        "type": "local",
+        "command": [
+          "npx",
+          "-y",
+          "chrome-devtools-mcp@latest",
+          "--executablePath=/usr/bin/chromium",
+          "--no-usage-statistics",
+          "--no-performance-crux"
+        ]
+      }
+    }
+  },
 }
