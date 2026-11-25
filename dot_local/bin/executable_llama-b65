@@ -73,6 +73,12 @@ esac
 [ $# -gt 0 ] && shift
 BACKEND="${BACKEND:-$DEF_BACKEND}"
 
+# Keep the NVIDIA dGPU asleep (checked 2026-11-25): without these, SYCL loads its OpenCL adapter,
+# which loads libnvidia-opencl + libcuda, and Vulkan loads the NVIDIA ICD. Either one opens
+# /dev/nvidia0 and wakes the GPU for as long as llama-server runs, even with --device set to the B65.
+export ONEAPI_DEVICE_SELECTOR="${ONEAPI_DEVICE_SELECTOR:-level_zero:gpu}"
+export VK_LOADER_DRIVERS_SELECT="${VK_LOADER_DRIVERS_SELECT:-*intel*}"
+
 if [ "$BACKEND" = sycl ]; then
     # oneAPI runtime libraries (setvars.sh trips over `set -u`).
     set +u; source /opt/intel/oneapi/setvars.sh >/dev/null 2>&1 || true; set -u
