@@ -50,6 +50,22 @@
 },
     },
 
+    // Start with: llama-b65 inkling   (Inkling 2 Mini; reasoning always on, English only)
+    "llamacpp-inkling": {
+      "name": "llama.cpp Inkling 2 Mini (B65)",
+      "package": "@opencode/ai/providers/openai-compatible",
+      "settings": {
+        "baseURL": "http://127.0.0.1:18088/v1",
+      },
+      "models": {
+        "inkling-2-mini": {
+          "name": "Inkling 2 Mini UD-Q4_K_M (local)",
+          "limit": { "context": 65536, "output": 16384 },
+          "capabilities": { "tools": true },
+        },
+      },
+    },
+
         "llamacpp-gemma-4-12b-it-q6-k": {
       "name": "llama.cpp gemma-4-12b-it-Q6_K (B65)",
       "package": "@opencode/ai/providers/openai-compatible",
@@ -65,7 +81,7 @@
       },
     },
 },
-  "model": "llamacpp-qwen-oc/qwen3-8-27b-qwen-oc",
+  "model": "llamacpp-gemma-4-12b-it-q6-k/gemma-4-12b-it-q6-k",
   "mcp": {
     "servers": {
       "gimp": {
