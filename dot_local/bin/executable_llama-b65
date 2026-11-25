@@ -29,7 +29,7 @@ case "${1:-qwen-oc}" in
            # sampling is the training one. Trained on BF16 weights; on Q4_K_M it may drift.
            SAMPLING=(--temp 0.8 --top-p 1.0 --top-k 0
                      --lora "$MODELS/lora-qwen38-opencode/Qwen3.8-27B-opencode-lora-F16.gguf"
-                     --chat-template-kwargs '{"enable_thinking": false}')
+                     --reasoning off)
            MTP="$MODELS/MTP/mtp-Qwen3.8-27B-Q4_0.gguf"
            if [ -f "$MTP" ] && [ -z "${NO_MTP:-}" ]; then SAMPLING+=(--spec-type draft-mtp --spec-draft-model "$MTP"); fi ;;
     medpsy) MODEL="$MODELS/medpsy-4b-q8_0.gguf"; DEF_BACKEND=sycl; PORT=18085
@@ -39,10 +39,16 @@ case "${1:-qwen-oc}" in
            CTX=32768
            # Rewriting Czech speech transcripts: low temperature, thinking off.
            # Measured 2026-11-21 on the B65: 34 tok/s without the MTP head, 81 tok/s with it.
-           SAMPLING=(--temp 0.2 --chat-template-kwargs '{"enable_thinking": false}')
+           SAMPLING=(--temp 0.2 --reasoning off)
            MTP="$MODELS/MTP/mtp-gemma-4-12b-it.gguf"
            if [ -f "$MTP" ] && [ -z "${NO_MTP:-}" ]; then SAMPLING+=(--spec-type draft-mtp --spec-draft-model "$MTP"); fi ;;
     *)     MODEL="$1"; DEF_BACKEND=vulkan; PORT=18080; CTX=65536; SAMPLING=() ;;
+esac
+# Vision projector: without it llama-server rejects image input
+# ("image input is not supported"), e.g. GIMP MCP get_state_snapshot. Disable with NO_MMPROJ=1.
+case "${1:-qwen-oc}" in
+    qwen|qwen-oc) MMPROJ="$MODELS/mmproj/mmproj-Qwen3.8-27B-F16.gguf"
+           if [ -f "$MMPROJ" ] && [ -z "${NO_MMPROJ:-}" ]; then SAMPLING+=(--mmproj "$MMPROJ"); fi ;;
 esac
 [ $# -gt 0 ] && shift
 BACKEND="${BACKEND:-$DEF_BACKEND}"
