@@ -70,7 +70,6 @@
       },
     },
     // e-INFRA CZ hosted models. The key comes from EINFRA_API_KEY or /connect.
-    // "coder" and "thinker" are the ids sent to the API.
     "einfra": {
       "name": "e-INFRA CZ",
       "env": ["EINFRA_API_KEY"],
@@ -79,11 +78,11 @@
         "baseURL": "https://llm.ai.e-infra.cz/v1",
       },
       "models": {
-        "coder": {
+        "deepseek-v4.1-flash": {
           "name": "DeepSeek v4.1 Flash (e-INFRA)",
           "capabilities": { "tools": true },
         },
-        "thinker": {
+        "deepseek-v4.1-flash-thinking": {
           "name": "DeepSeek v4.1 Flash Thinking (e-INFRA)",
           "capabilities": { "tools": true },
         },
