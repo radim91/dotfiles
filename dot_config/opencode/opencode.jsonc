@@ -5,7 +5,25 @@
   // picking a model whose server is not running fails instead of silently
   // answering with the other model. Ports are kept out of the web-dev range.
   // The context limits must match the -c value in ~/.local/bin/llama-b65.
+  // The model ids are the slugs the llm-watcher GNOME extension derives from
+  // the file name (+ alias); with any other id it adds a duplicate entry.
   "providers": {
+    // Start with: llama-b65        (qwen-oc is the launcher default)
+    // Qwen3.8-27B with the opencode LoRA adapter (harness-hub), thinking off.
+    "llamacpp-qwen-oc": {
+      "name": "llama.cpp Qwen + opencode adapter (B65)",
+      "package": "@opencode/ai/providers/openai-compatible",
+      "settings": {
+        "baseURL": "http://127.0.0.1:18087/v1",
+      },
+      "models": {
+        "qwen3-8-27b-qwen-oc": {
+          "name": "Qwen3.8-27B opencode-adapted (local)",
+          "limit": { "context": 131072, "output": 8192 },
+          "capabilities": { "tools": true },
+        },
+      },
+    },
     // Start with: llama-b65 qwen   (base model with thinking, for general questions)
     "llamacpp-qwen": {
       "name": "llama.cpp Qwen (B65)",
@@ -14,42 +32,13 @@
         "baseURL": "http://127.0.0.1:18081/v1",
       },
       "models": {
-        "qwen3.8-27b": {
+        "qwen3-8-27b": {
           "name": "Qwen3.8-27B (local)",
           "limit": { "context": 131072, "output": 8192 },
           "capabilities": { "tools": true },
         },
-      
-                "qwen3-8-27b": {
-          "name": "Qwen3.8-27B (local)",
-          "limit": { "context": 131072, "output": 8192 },
-          "capabilities": { "tools": true },
-        },
-},
-    },
-    // Start with: llama-b65        (qwen-oc is the launcher default)
-    // Same Qwen3.8-27B with the opencode LoRA adapter (harness-hub), thinking off.
-    "llamacpp-qwen-oc": {
-      "name": "llama.cpp Qwen + opencode adapter (B65)",
-      "package": "@opencode/ai/providers/openai-compatible",
-      "settings": {
-        "baseURL": "http://127.0.0.1:18087/v1",
       },
-      "models": {
-        "qwen3.8-27b-opencode": {
-          "name": "Qwen3.8-27B opencode-adapted (local)",
-          "limit": { "context": 131072, "output": 8192 },
-          "capabilities": { "tools": true },
-        },
-      
-                "qwen3-8-27b-qwen-oc": {
-          "name": "Qwen3.8-27B-UD-Q4_K_M (qwen-oc) (local)",
-          "limit": { "context": 131072, "output": 8192 },
-          "capabilities": { "tools": true },
-        },
-},
     },
-
     // Start with: llama-b65 inkling   (Inkling 2 Mini; reasoning always on, English only)
     "llamacpp-inkling": {
       "name": "llama.cpp Inkling 2 Mini (B65)",
@@ -65,31 +54,48 @@
         },
       },
     },
-
-        "llamacpp-gemma-4-12b-it-q6-k": {
-      "name": "llama.cpp gemma-4-12b-it-Q6_K (B65)",
+    // Start with: llama-b65 gemma   (Czech transcript rewriting, thinking off; not meant for code)
+    "llamacpp-gemma": {
+      "name": "llama.cpp Gemma 4 12B (B65)",
       "package": "@opencode/ai/providers/openai-compatible",
       "settings": {
         "baseURL": "http://127.0.0.1:18086/v1",
       },
       "models": {
         "gemma-4-12b-it-q6-k": {
-          "name": "gemma-4-12b-it-Q6_K (local)",
+          "name": "Gemma 4 12B Q6_K (local)",
           "limit": { "context": 32768, "output": 8192 },
           "capabilities": { "tools": true },
         },
       },
     },
-},
-  "model": "llamacpp-gemma-4-12b-it-q6-k/gemma-4-12b-it-q6-k",
+    // e-INFRA CZ hosted models. The key comes from EINFRA_API_KEY or /connect.
+    // "coder" and "thinker" are the ids sent to the API.
+    "einfra": {
+      "name": "e-INFRA CZ",
+      "env": ["EINFRA_API_KEY"],
+      "package": "@opencode/ai/providers/openai-compatible",
+      "settings": {
+        "baseURL": "https://llm.ai.e-infra.cz/v1",
+      },
+      "models": {
+        "coder": {
+          "name": "DeepSeek v4.1 Flash (e-INFRA)",
+          "capabilities": { "tools": true },
+        },
+        "thinker": {
+          "name": "DeepSeek v4.1 Flash Thinking (e-INFRA)",
+          "capabilities": { "tools": true },
+        },
+      },
+    },
+  },
+  "model": "llamacpp-qwen-oc/qwen3-8-27b-qwen-oc",
   "mcp": {
     "servers": {
       "gimp": {
         "type": "local",
-        "command": [
-          "uvx",
-          "gimp-mcp-plugin@latest"
-        ]
+        "command": ["uvx", "gimp-mcp-plugin@latest"],
       },
       "chrome-devtools": {
         "type": "local",
@@ -99,24 +105,9 @@
           "chrome-devtools-mcp@latest",
           "--executablePath=/usr/bin/chromium",
           "--no-usage-statistics",
-          "--no-performance-crux"
-        ]
-      }
-    }
-  },
-  "deepseek": {
-      "npm": "@ai-sdk/openai-compatible",
-      "name": "Deepseek v4.1 Flash",
-      "options": {
-        "baseURL": "https://llm.ai.e-infra.cz/v1"
+          "--no-performance-crux",
+        ],
       },
-      "models": {
-        "coder": {
-          "name": "deepseek-v4.1-flash"
-        },
-        "thinker": {
-          "name": "deepseek-v4.1-flash-thinking"
-        }
-      }
-    }
+    },
+  },
 }
