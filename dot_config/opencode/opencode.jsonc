@@ -80,11 +80,21 @@
       "models": {
         "deepseek-v4.1-flash": {
           "name": "DeepSeek v4.1 Flash (e-INFRA)",
-          "capabilities": { "tools": true },
+          "limit": { "context": 1000000, "output": 64000 },
+          // The endpoint rejects "medium"; offer only the efforts it accepts.
+          "capabilities": {
+            "tools": true,
+            "reasoning": { "supported": true, "effort": ["low", "high", "xhigh", "max"] },
+          },
         },
         "deepseek-v4.1-flash-thinking": {
           "name": "DeepSeek v4.1 Flash Thinking (e-INFRA)",
-          "capabilities": { "tools": true },
+          "limit": { "context": 1000000, "output": 64000 },
+          // The endpoint rejects "medium"; offer only the efforts it accepts.
+          "capabilities": {
+            "tools": true,
+            "reasoning": { "supported": true, "effort": ["low", "high", "xhigh", "max"] },
+          },
         },
       },
     },
