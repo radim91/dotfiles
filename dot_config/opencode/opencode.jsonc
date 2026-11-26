@@ -104,4 +104,19 @@
       }
     }
   },
+  "deepseek": {
+      "npm": "@ai-sdk/openai-compatible",
+      "name": "Deepseek v4.1 Flash",
+      "options": {
+        "baseURL": "https://llm.ai.e-infra.cz/v1"
+      },
+      "models": {
+        "coder": {
+          "name": "deepseek-v4.1-flash"
+        },
+        "thinker": {
+          "name": "deepseek-v4.1-flash-thinking"
+        }
+      }
+    }
 }
