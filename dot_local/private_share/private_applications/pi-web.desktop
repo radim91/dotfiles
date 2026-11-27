@@ -1,0 +1,9 @@
+[Desktop Entry]
+Type=Application
+Name=Pi Web
+Comment=Browser UI for the pi coding agent (127.0.0.1:30141)
+# Starts the server if needed and opens the browser; if it already runs, just opens it.
+Exec=sh -c 'pi-web open 2>/dev/null || PI_WEB_SKIP_VERSION_CHECK=1 exec "$HOME/.local/bin/pi-web"'
+Icon=utilities-terminal
+Terminal=false
+Categories=Development;
