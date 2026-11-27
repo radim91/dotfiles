@@ -1,0 +1,8 @@
+#!/bin/sh
+# Open Pi Web (browser UI for pi, http://127.0.0.1:30141).
+# If the server already runs, just open the browser; otherwise start it (it opens the browser itself).
+export PI_WEB_SKIP_VERSION_CHECK=1
+if "$HOME/.local/bin/pi-web" status 2>/dev/null | grep -q "127.0.0.1:30141"; then
+  exec "$HOME/.local/bin/pi-web" open
+fi
+exec "$HOME/.local/bin/pi-web"
