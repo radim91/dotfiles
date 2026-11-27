@@ -14,6 +14,28 @@
         }
       ]
     },
+    "einfra": {
+      "baseUrl": "https://llm.ai.e-infra.cz/v1",
+      "api": "openai-completions",
+      "models": [
+        {
+          "id": "deepseek-v4.1-flash",
+          "name": "DeepSeek v4.1 Flash (e-INFRA)",
+          "reasoning": true,
+          "thinkingLevelMap": { "minimal": null, "medium": null, "xhigh": "xhigh", "max": "max" },
+          "contextWindow": 1000000,
+          "maxTokens": 64000
+        },
+        {
+          "id": "deepseek-v4.1-flash-thinking",
+          "name": "DeepSeek v4.1 Flash Thinking (e-INFRA)",
+          "reasoning": true,
+          "thinkingLevelMap": { "minimal": null, "medium": null, "xhigh": "xhigh", "max": "max" },
+          "contextWindow": 1000000,
+          "maxTokens": 64000
+        }
+      ]
+    },
     "llamacpp-qwen-pi": {
       "baseUrl": "http://127.0.0.1:18089/v1",
       "api": "openai-completions",
