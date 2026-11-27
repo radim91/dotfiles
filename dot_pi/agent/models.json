@@ -22,7 +22,12 @@
           "id": "deepseek-v4.1-flash",
           "name": "DeepSeek v4.1 Flash (e-INFRA)",
           "reasoning": true,
-          "thinkingLevelMap": { "minimal": null, "medium": null, "xhigh": "xhigh", "max": "max" },
+          "thinkingLevelMap": {
+            "minimal": null,
+            "medium": null,
+            "xhigh": "xhigh",
+            "max": "max"
+          },
           "contextWindow": 1000000,
           "maxTokens": 64000
         },
@@ -30,7 +35,12 @@
           "id": "deepseek-v4.1-flash-thinking",
           "name": "DeepSeek v4.1 Flash Thinking (e-INFRA)",
           "reasoning": true,
-          "thinkingLevelMap": { "minimal": null, "medium": null, "xhigh": "xhigh", "max": "max" },
+          "thinkingLevelMap": {
+            "minimal": null,
+            "medium": null,
+            "xhigh": "xhigh",
+            "max": "max"
+          },
           "contextWindow": 1000000,
           "maxTokens": 64000
         }
@@ -44,6 +54,12 @@
         {
           "id": "qwen3.8-27b-pi",
           "name": "Qwen3.8-27B + pi adapter (B65, llama-b65 qwen-pi)",
+          "contextWindow": 131072,
+          "maxTokens": 8192
+        },
+        {
+          "id": "qwen3-8-27b-qwen-pi",
+          "name": "Qwen3.8-27B-UD-Q4_K_M (qwen-pi) (B65)",
           "contextWindow": 131072,
           "maxTokens": 8192
         }
@@ -74,6 +90,19 @@
           "reasoning": true,
           "contextWindow": 65536,
           "maxTokens": 16384
+        }
+      ]
+    },
+    "llamacpp-gemma-4-12b-it-q6-k": {
+      "baseUrl": "http://127.0.0.1:18086/v1",
+      "api": "openai-completions",
+      "apiKey": "local",
+      "models": [
+        {
+          "id": "gemma-4-12b-it-q6-k",
+          "name": "gemma-4-12b-it-Q6_K (B65)",
+          "contextWindow": 32768,
+          "maxTokens": 8192
         }
       ]
     }
